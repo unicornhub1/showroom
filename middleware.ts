@@ -1,14 +1,23 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
-import { verifyToken, COOKIE_NAME } from '@/lib/auth';
 import { jwtVerify } from 'jose';
 
+const COOKIE_NAME = 'showroom-auth-token';
 const SHARE_SESSION_COOKIE = 'share-session';
 
 function getJwtSecret() {
   const secret = process.env.JWT_SECRET;
   if (!secret) throw new Error('JWT_SECRET not set');
   return new TextEncoder().encode(secret);
+}
+
+async function verifyAdminToken(token: string) {
+  try {
+    const { payload } = await jwtVerify(token, getJwtSecret());
+    return payload as { username: string };
+  } catch {
+    return null;
+  }
 }
 
 export async function middleware(request: NextRequest) {
@@ -26,7 +35,7 @@ export async function middleware(request: NextRequest) {
       return NextResponse.redirect(new URL('/admin/login', request.url));
     }
 
-    const payload = await verifyToken(token);
+    const payload = await verifyAdminToken(token);
     if (!payload) {
       const response = NextResponse.redirect(
         new URL('/admin/login', request.url)
@@ -43,7 +52,7 @@ export async function middleware(request: NextRequest) {
     // Admin always allowed
     const adminToken = request.cookies.get(COOKIE_NAME)?.value;
     if (adminToken) {
-      const payload = await verifyToken(adminToken);
+      const payload = await verifyAdminToken(adminToken);
       if (payload) return NextResponse.next();
     }
 
@@ -72,7 +81,7 @@ export async function middleware(request: NextRequest) {
     // Admin is always allowed
     const adminToken = request.cookies.get(COOKIE_NAME)?.value;
     if (adminToken) {
-      const payload = await verifyToken(adminToken);
+      const payload = await verifyAdminToken(adminToken);
       if (payload) return NextResponse.next();
     }
 
@@ -84,7 +93,7 @@ export async function middleware(request: NextRequest) {
         const allowedSlugs = payload.slugs as string[];
 
         // Extract template slug: /templates/fashion/streetwear/... → fashion/streetwear
-        const parts = pathname.split('/').filter(Boolean); // ['templates', 'fashion', 'streetwear', ...]
+        const parts = pathname.split('/').filter(Boolean);
         const templateSlug = parts.length >= 3 ? `${parts[1]}/${parts[2]}` : '';
 
         if (allowedSlugs.includes(templateSlug)) {
