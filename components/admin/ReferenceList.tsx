@@ -56,7 +56,7 @@ export default function ReferenceList({ references, onEdit, onRefresh }: Referen
   }
 
   async function deleteReference(id: number) {
-    if (!confirm('Diese Referenz wirklich loeschen?')) return;
+    if (!confirm('Diese Referenz wirklich löschen?')) return;
     setDeletingId(id);
     try {
       await fetch(`/api/admin/references/${id}`, { method: 'DELETE' });

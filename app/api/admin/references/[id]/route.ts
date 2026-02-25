@@ -29,9 +29,10 @@ export async function PATCH(
 
     const updated = getAllReferences().find((r) => r.id === id);
     return NextResponse.json(updated);
-  } catch {
+  } catch (e) {
+    console.error('[PATCH /api/admin/references/[id]]', e);
     return NextResponse.json(
-      { error: 'Failed to update reference' },
+      { error: e instanceof Error ? e.message : 'Failed to update reference' },
       { status: 500 }
     );
   }
@@ -62,9 +63,10 @@ export async function DELETE(
 
     deleteReference(id);
     return NextResponse.json({ success: true });
-  } catch {
+  } catch (e) {
+    console.error('[DELETE /api/admin/references/[id]]', e);
     return NextResponse.json(
-      { error: 'Failed to delete reference' },
+      { error: e instanceof Error ? e.message : 'Failed to delete reference' },
       { status: 500 }
     );
   }

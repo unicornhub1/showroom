@@ -18,7 +18,8 @@ export async function GET() {
     });
 
     return NextResponse.json(linksWithStats);
-  } catch {
+  } catch (e) {
+    console.error('[GET /api/admin/links]', e);
     return NextResponse.json(
       { error: 'Failed to fetch share links' },
       { status: 500 }
@@ -48,9 +49,10 @@ export async function POST(request: Request) {
     });
 
     return NextResponse.json(link, { status: 201 });
-  } catch {
+  } catch (e) {
+    console.error('[POST /api/admin/links]', e);
     return NextResponse.json(
-      { error: 'Failed to create share link' },
+      { error: e instanceof Error ? e.message : 'Failed to create share link' },
       { status: 500 }
     );
   }

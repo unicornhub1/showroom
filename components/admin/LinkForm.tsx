@@ -310,7 +310,7 @@ export default function LinkForm({ onSave, onCancel, editLink }: LinkFormProps) 
           /* Template Picker */
           <div>
             <label className="block text-sm font-medium text-showroom-muted mb-2">
-              Templates ausw&auml;hlen
+              Templates auswählen
             </label>
             <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
               {TEMPLATES.map((t) => (
@@ -358,11 +358,11 @@ export default function LinkForm({ onSave, onCancel, editLink }: LinkFormProps) 
               ))}
             </div>
             {selectedTemplates.length === 0 && (
-              <p className="text-xs text-showroom-muted mt-2">Mindestens ein Template ausw&auml;hlen</p>
+              <p className="text-xs text-showroom-muted mt-2">Mindestens ein Template auswählen</p>
             )}
             {selectedTemplates.length > 0 && (
               <p className="text-xs text-showroom-accent/70 mt-2">
-                {selectedTemplates.length} Template{selectedTemplates.length !== 1 ? 's' : ''} ausgew&auml;hlt
+                {selectedTemplates.length} Template{selectedTemplates.length !== 1 ? 's' : ''} ausgewählt
               </p>
             )}
           </div>

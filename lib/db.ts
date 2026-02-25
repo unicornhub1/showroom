@@ -37,7 +37,11 @@ function getDb(): Database.Database {
     return globalForDb.__showroom_db;
   }
 
-  const dbDir = path.join(process.cwd(), 'data');
+  // On Vercel the code directory is read-only — use /tmp instead
+  const dbDir = process.env.VERCEL === '1'
+    ? '/tmp'
+    : path.join(process.cwd(), 'data');
+
   if (!fs.existsSync(dbDir)) {
     fs.mkdirSync(dbDir, { recursive: true });
   }

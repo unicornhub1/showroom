@@ -35,9 +35,10 @@ export async function POST(request: Request) {
     });
 
     return NextResponse.json(reference, { status: 201 });
-  } catch {
+  } catch (e) {
+    console.error('[POST /api/admin/references]', e);
     return NextResponse.json(
-      { error: 'Failed to create reference' },
+      { error: e instanceof Error ? e.message : 'Failed to create reference' },
       { status: 500 }
     );
   }
