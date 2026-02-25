@@ -8,7 +8,7 @@ import {
   BRANCH_LABELS,
   TYPE_LABELS,
 } from "@/lib/templates";
-import { getTemplateVisibility, getVisibleReferences } from "@/lib/db";
+import { getAllTemplateVisibilityEC, getVisibleReferencesEC } from "@/lib/edge-store";
 import { verifyToken, COOKIE_NAME } from "@/lib/auth";
 import { Header } from "@/components/showroom/Header";
 import { Footer } from "@/components/showroom/Footer";
@@ -60,14 +60,17 @@ export default async function ShowroomPage({ searchParams }: PageProps) {
   const isAdmin = allowedSlugs === null;
 
   let allTemplates = getTemplatesByFilter(branch, type);
-  let templates = allTemplates.filter((t) => getTemplateVisibility(t.slug));
+  const visibilityMap = await getAllTemplateVisibilityEC();
+  let templates = allTemplates.filter((t) =>
+    visibilityMap[t.slug] !== false
+  );
 
   // Filter by allowed slugs (null = admin, show all)
   if (allowedSlugs !== null) {
     templates = templates.filter((t) => allowedSlugs.includes(t.slug));
   }
 
-  const references = getVisibleReferences(branch, type);
+  const references = await getVisibleReferencesEC(branch, type);
   const branches = getAllBranches();
   const types = getAllTypes();
 

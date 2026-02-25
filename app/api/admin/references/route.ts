@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server';
-import { getAllReferences, createReference } from '@/lib/db';
+import { getAllReferencesEC, createReferenceEC } from '@/lib/edge-store';
 
 export async function GET() {
   try {
-    const references = getAllReferences();
+    const references = await getAllReferencesEC();
     return NextResponse.json(references);
   } catch {
     return NextResponse.json(
@@ -25,7 +25,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const reference = createReference({
+    const reference = await createReferenceEC({
       title,
       url,
       thumbnail: thumbnail || '',

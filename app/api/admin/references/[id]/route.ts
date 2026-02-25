@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { updateReference, deleteReference, getAllReferences } from '@/lib/db';
+import { getAllReferencesEC, updateReferenceEC, deleteReferenceEC } from '@/lib/edge-store';
 
 export async function PATCH(
   request: Request,
@@ -16,7 +16,7 @@ export async function PATCH(
       );
     }
 
-    const existing = getAllReferences().find((r) => r.id === id);
+    const existing = (await getAllReferencesEC()).find((r) => r.id === id);
     if (!existing) {
       return NextResponse.json(
         { error: 'Reference not found' },
@@ -25,9 +25,9 @@ export async function PATCH(
     }
 
     const body = await request.json();
-    updateReference(id, body);
+    await updateReferenceEC(id, body);
 
-    const updated = getAllReferences().find((r) => r.id === id);
+    const updated = (await getAllReferencesEC()).find((r) => r.id === id);
     return NextResponse.json(updated);
   } catch (e) {
     console.error('[PATCH /api/admin/references/[id]]', e);
@@ -53,7 +53,7 @@ export async function DELETE(
       );
     }
 
-    const existing = getAllReferences().find((r) => r.id === id);
+    const existing = (await getAllReferencesEC()).find((r) => r.id === id);
     if (!existing) {
       return NextResponse.json(
         { error: 'Reference not found' },
@@ -61,7 +61,7 @@ export async function DELETE(
       );
     }
 
-    deleteReference(id);
+    await deleteReferenceEC(id);
     return NextResponse.json({ success: true });
   } catch (e) {
     console.error('[DELETE /api/admin/references/[id]]', e);

@@ -1,13 +1,13 @@
 import { NextResponse } from 'next/server';
 import { TEMPLATES } from '@/lib/templates';
 import {
-  getAllTemplateVisibility,
-  setTemplateVisibility,
-} from '@/lib/db';
+  getAllTemplateVisibilityEC,
+  setTemplateVisibilityEC,
+} from '@/lib/edge-store';
 
 export async function GET() {
   try {
-    const visibility = getAllTemplateVisibility();
+    const visibility = await getAllTemplateVisibilityEC();
     const templates = TEMPLATES.map((t) => ({
       ...t,
       is_visible: visibility[t.slug] !== undefined ? visibility[t.slug] : true,
@@ -41,7 +41,7 @@ export async function PATCH(request: Request) {
       );
     }
 
-    setTemplateVisibility(slug, is_visible);
+    await setTemplateVisibilityEC(slug, is_visible);
 
     return NextResponse.json({ slug, is_visible });
   } catch {

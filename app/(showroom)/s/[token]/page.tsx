@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { jwtVerify } from "jose";
-import { getShareLink, getTemplateVisibility, getVisibleReferences } from "@/lib/db";
+import { getShareLink } from "@/lib/db";
+import { getAllTemplateVisibilityEC, getVisibleReferencesEC } from "@/lib/edge-store";
 import { TEMPLATES } from "@/lib/templates";
 import type { Template } from "@/lib/templates";
 import { Header } from "@/components/showroom/Header";
@@ -119,14 +120,15 @@ export default async function TokenShowroomPage({ params }: PageProps) {
   }
 
   // Filter templates by resolved slugs and visibility
+  const visibilityMap = await getAllTemplateVisibilityEC();
   let templates: Template[] = TEMPLATES.filter((t) =>
     resolvedSlugs!.includes(t.slug)
-  ).filter((t) => getTemplateVisibility(t.slug));
+  ).filter((t) => visibilityMap[t.slug] !== false);
 
   const allowedSlugs = templates.map((t) => t.slug);
 
   // Get matching references
-  const references = getVisibleReferences(firstBranch, firstType);
+  const references = await getVisibleReferencesEC(firstBranch, firstType);
 
   return (
     <>
