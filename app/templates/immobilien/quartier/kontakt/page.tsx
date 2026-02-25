@@ -432,7 +432,7 @@ export default function KontaktPage() {
           </FadeIn>
 
           <div className="grid gap-6 sm:grid-cols-3">
-            [
+            {[
               {
                 city: "Standort 1",
                 label: "Hauptsitz",
