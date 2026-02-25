@@ -52,7 +52,7 @@ interface CartContextValue {
 const CartContext = createContext<CartContextValue | null>(null);
 
 /* ── Storage key ───────────────────────────────────────────────────────── */
-const STORAGE_KEY = "krsn-cart";
+const STORAGE_KEY = "vltg-cart";
 
 /* ── Toast notification ────────────────────────────────────────────────── */
 

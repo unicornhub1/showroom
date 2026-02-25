@@ -18,9 +18,9 @@ const LEGAL_LINKS = [
 ];
 
 const OFFICES = [
-  { city: "München", address: "Maximilianstraße 12", phone: "+49 89 123 456 0" },
-  { city: "Starnberg", address: "Hauptstraße 8", phone: "+49 8151 789 012" },
-  { city: "Grünwald", address: "Rathausstraße 3", phone: "+49 89 649 345 0" },
+  { city: "Standort 1", address: "Musterstraße 1", phone: "+49 (0) 30 123 456 78" },
+  { city: "Standort 2", address: "Musterstraße 1", phone: "+49 (0) 30 123 456 78" },
+  { city: "Standort 3", address: "Musterstraße 1", phone: "+49 (0) 30 123 456 78" },
 ];
 
 export default function Footer() {
@@ -60,7 +60,7 @@ export default function Footer() {
               className="mt-5 text-[13px] font-light leading-relaxed"
               style={{ fontFamily: "var(--qt-font-body)", color: "var(--qt-muted)" }}
             >
-              Premium Immobilienvermittlung in München und Umgebung. Seit 2011 Ihr Partner für Kauf, Verkauf und Beratung auf höchstem Niveau.
+              Premium Immobilienvermittlung in bester Lage. Ihr Partner für Kauf, Verkauf und Beratung auf höchstem Niveau.
             </p>
           </div>
 
@@ -134,13 +134,13 @@ export default function Footer() {
                 className="text-[13px] font-light"
                 style={{ fontFamily: "var(--qt-font-body)", color: "var(--qt-muted)" }}
               >
-                info@quartier-immobilien.de
+                info@beispiel.de
               </p>
               <p
                 className="text-[13px] font-light"
                 style={{ fontFamily: "var(--qt-font-body)", color: "var(--qt-muted)" }}
               >
-                +49 89 123 456 0
+                +49 (0) 30 123 456 78
               </p>
               <div className="pt-2">
                 <Link
@@ -168,7 +168,7 @@ export default function Footer() {
               className="text-[11px] font-light"
               style={{ fontFamily: "var(--qt-font-body)", color: "var(--qt-muted)" }}
             >
-              &copy; 2026 QUARTIER Immobilien GmbH. Alle Rechte vorbehalten.
+              &copy; 2025 Unicorn Factory &middot; QUARTIER (Designvorlage)
             </p>
             <div className="flex items-center gap-6">
               {LEGAL_LINKS.map((link) => (

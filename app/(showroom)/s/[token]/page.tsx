@@ -164,6 +164,9 @@ export default async function TokenShowroomPage({ params }: PageProps) {
                 {linkName}
               </p>
             )}
+            <p className="animate-fade-in-up-delay-2 mt-3 text-sm text-showroom-muted/70 max-w-xl mx-auto">
+              Von Unicorn Factory entwickelte Design-Vorlagen — als Arbeitsprobe und Inspiration für Ihr Projekt. Alle dargestellten Marken und Inhalte sind fiktiv.
+            </p>
           </div>
         </section>
 

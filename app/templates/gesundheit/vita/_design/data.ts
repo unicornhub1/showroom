@@ -355,12 +355,12 @@ export const openingHours: OpeningHour[] = [
 /* ── Contact Info ─────────────────────────────────────────────────────── */
 
 export const contactInfo: ContactInfo = {
-  address: "Bahnhofstraße 12",
-  city: "66111 Saarbrücken",
-  phone: "0681 123456",
-  fax: "0681 123457",
-  email: "info@praxis-vita.de",
-  emergency: "0681 123456",
+  address: "Musterstraße 1",
+  city: "10115 Berlin",
+  phone: "+49 (0) 30 123 456 78",
+  fax: "+49 (0) 30 123 456 79",
+  email: "info@beispiel.de",
+  emergency: "+49 (0) 30 123 456 78",
 };
 
 /* ── Equipment ────────────────────────────────────────────────────────── */
@@ -381,8 +381,8 @@ export const equipment: string[] = [
 /* ── Directions ───────────────────────────────────────────────────────── */
 
 export const directions = {
-  bus: "Haltestelle \"Rathaus\" (Linien 101, 102, 105) \u2013 3 Minuten Fußweg",
-  bahn: "Saarbahn-Haltestelle \"Johanneskirche\" \u2013 5 Minuten Fußweg",
-  auto: "Parkhaus \"Am Rathaus\" in 100m Entfernung. Barrierefreie Parkplätze direkt vor dem Eingang.",
+  bus: "Haltestelle \"Musterplatz\" (Linien 101, 102, 105) \u2013 3 Minuten Fußweg",
+  bahn: "U-Bahn-Haltestelle \"Musterstraße\" \u2013 5 Minuten Fußweg",
+  auto: "Parkhaus in 100m Entfernung. Barrierefreie Parkplätze direkt vor dem Eingang.",
   fahrrad: "Fahrradstellplätze direkt vor der Praxis vorhanden.",
 };

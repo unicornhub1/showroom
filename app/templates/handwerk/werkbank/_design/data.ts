@@ -361,11 +361,11 @@ export const timeline: TimelineEvent[] = [
 
 export const contactInfo: ContactInfo = {
   company: "WERKBANK Schreinerei",
-  street: "Industriestraße 28",
-  city: "70565 Stuttgart-Vaihingen",
-  phone: "+49 711 456 78 90",
-  email: "info@werkbank-schreinerei.de",
-  website: "www.werkbank-schreinerei.de",
+  street: "Musterstraße 1",
+  city: "10115 Berlin",
+  phone: "+49 (0) 30 123 456 78",
+  email: "info@beispiel.de",
+  website: "www.beispiel.de",
 };
 
 export const openingHoursWerkstatt: OpeningHours[] = [

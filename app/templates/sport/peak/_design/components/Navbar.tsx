@@ -73,7 +73,7 @@ export default function Navbar() {
               gap: '2px',
             }}
           >
-            PEAK
+            PRSM
             <span
               style={{
                 display: 'inline-block',

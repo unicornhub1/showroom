@@ -221,8 +221,7 @@ export default function Footer() {
                   opacity: 0.6,
                 }}
               >
-                &copy; 2026 VITA Praxis f&uuml;r Gesundheit. Alle Rechte
-                vorbehalten.
+                &copy; 2025 Unicorn Factory &middot; VITA (Designvorlage)
               </p>
 
               <div className="flex items-center gap-6">

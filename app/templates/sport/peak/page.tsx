@@ -64,7 +64,7 @@ function FadeIn({ children, className = '', delay = 0 }: { children: React.React
 /* ============================================
    Homepage
    ============================================ */
-export default function PeakHomePage() {
+export default function PRSMHomePage() {
   const [heroLoaded, setHeroLoaded] = useState(false);
   useEffect(() => {
     const t = setTimeout(() => setHeroLoaded(true), 100);
@@ -158,7 +158,7 @@ export default function PeakHomePage() {
         >
           {/* Stacked giant text */}
           <div style={{ position: 'relative' }}>
-            {/* Background giant "PEAK" text - decorative */}
+            {/* Background giant "PRSM" text - decorative */}
             <div
               style={{
                 fontFamily: 'var(--pk-font-display)',
@@ -176,7 +176,7 @@ export default function PeakHomePage() {
                 userSelect: 'none',
               }}
             >
-              PEAK
+              PRSM
             </div>
 
             {/* Sub-label */}
@@ -1290,7 +1290,7 @@ export default function PeakHomePage() {
                       marginBottom: '4px',
                     }}
                   >
-                    PEAK Athletics
+                    PRSM Athletics
                   </div>
                   <div
                     style={{

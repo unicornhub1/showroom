@@ -236,7 +236,7 @@ export default function Footer() {
                 fontWeight: 300,
               }}
             >
-              &copy; 2026 AURUM. Alle Rechte vorbehalten.
+              &copy; 2025 Unicorn Factory &middot; AURUM (Designvorlage)
             </p>
 
             <div className="flex items-center gap-6">

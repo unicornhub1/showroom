@@ -223,7 +223,7 @@ export default function Footer() {
               color: 'rgba(245, 237, 227, 0.4)',
             }}
           >
-            &copy; {new Date().getFullYear()} WERKBANK Schreinerei. Alle Rechte vorbehalten.
+            &copy; 2025 Unicorn Factory &middot; WERKBANK (Designvorlage)
           </p>
           <div style={{ display: 'flex', gap: '24px' }}>
             <span

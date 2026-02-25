@@ -113,7 +113,7 @@ export default function Footer() {
                   color: "var(--hv-muted)",
                 }}
               >
-                +49 (0) 8321 / 94 78 0
+                +49 (0) 30 123 456 78
               </p>
               <p
                 className="text-[15px] leading-relaxed"
@@ -122,16 +122,7 @@ export default function Footer() {
                   color: "var(--hv-muted)",
                 }}
               >
-                info@haven-hotel.de
-              </p>
-              <p
-                className="text-[15px] leading-relaxed"
-                style={{
-                  fontFamily: "var(--hv-font-body)",
-                  color: "var(--hv-muted)",
-                }}
-              >
-                Fax: +49 (0) 8321 / 94 78 99
+                info@beispiel.de
               </p>
             </div>
           </div>
@@ -156,9 +147,9 @@ export default function Footer() {
             >
               HAVEN Boutique Hotel
               <br />
-              Bergstraße 24
+              Musterstraße 1
               <br />
-              87561 Oberstdorf
+              10115 Berlin
               <br />
               Deutschland
             </p>
@@ -215,7 +206,7 @@ export default function Footer() {
                 color: "var(--hv-muted)",
               }}
             >
-              &copy; 2026 HAVEN Boutique Hotel &amp; Spa. Alle Rechte vorbehalten.
+              &copy; 2025 Unicorn Factory &middot; HAVEN (Designvorlage)
             </p>
 
             <div className="flex items-center gap-6">

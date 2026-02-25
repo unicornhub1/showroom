@@ -18,7 +18,7 @@ const TEMPLATE_GRADIENTS: Record<string, { bg: string; accent: string; name: str
   'sport/peak': {
     bg: 'linear-gradient(135deg, #0D0D0D 0%, #161616 40%, #1C1C1C 100%)',
     accent: '#FF4500',
-    name: 'PEAK',
+    name: 'PRSM',
     tagline: 'Athletics',
   },
   'hotel/haven': {
@@ -73,6 +73,8 @@ export function TemplateCard({ template, index = 0 }: TemplateCardProps) {
   return (
     <Link
       href={`/templates/${template.slug}`}
+      target="_blank"
+      rel="noopener noreferrer"
       className="group relative flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-[#E2E5EF] bg-white shadow-[0_1px_3px_rgba(2,11,96,0.04)] transition-all duration-500 hover:-translate-y-1.5 hover:border-[rgba(45,97,240,0.3)] hover:shadow-[0_12px_40px_-8px_rgba(45,97,240,0.15),0_0_0_1px_rgba(45,97,240,0.1)]"
       style={{
         animation: `fade-in-up 0.6s ease-out ${delay}s both`,

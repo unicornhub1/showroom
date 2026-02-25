@@ -647,7 +647,7 @@ export default function KontaktPage() {
                     letterSpacing: '0.05em',
                   }}
                 >
-                  Karte &middot; Stuttgart-Vaihingen
+                  Karte &middot; Berlin
                 </span>
               </div>
             </FadeIn>
@@ -738,9 +738,8 @@ export default function KontaktPage() {
                   lineHeight: 1.7,
                 }}
               >
-                <strong style={{ color: 'var(--wb-text)' }}>Anfahrt:</strong> Über die B14 Ausfahrt
-                Vaihingen, dann Richtung Gewerbegebiet Nord. Kostenlose Parkplätze direkt
-                vor der Werkstatt.
+                <strong style={{ color: 'var(--wb-text)' }}>Anfahrt:</strong> Kostenlose Parkplätze direkt
+                vor der Werkstatt verfügbar.
               </p>
             </div>
           </FadeIn>

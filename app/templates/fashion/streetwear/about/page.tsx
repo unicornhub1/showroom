@@ -77,7 +77,7 @@ export default function AboutPage() {
     {
       number: "04",
       title: "Community First",
-      text: "KRSN ist mehr als eine Marke. Es ist eine Gemeinschaft von Leuten, die wissen, was sie wollen — und sich nicht mit weniger zufriedengeben.",
+      text: "VLTG ist mehr als eine Marke. Es ist eine Gemeinschaft von Leuten, die wissen, was sie wollen — und sich nicht mit weniger zufriedengeben.",
     },
   ];
 
@@ -131,7 +131,7 @@ export default function AboutPage() {
                 </Link>
               </li>
               <li style={{ color: "var(--kr-charcoal)" }}>/</li>
-              <li style={{ color: "var(--kr-text)" }}>Über KRSN</li>
+              <li style={{ color: "var(--kr-text)" }}>Über VLTG</li>
             </ol>
           </nav>
 
@@ -158,7 +158,7 @@ export default function AboutPage() {
             >
               Wir sind
               <br />
-              KRSN
+              VLTG
             </h1>
           </FadeIn>
 
@@ -217,7 +217,7 @@ export default function AboutPage() {
                     color: "var(--kr-muted)",
                   }}
                 >
-                  KRSN wurde aus der Überzeugung geboren, dass Streetwear mehr
+                  VLTG wurde aus der Überzeugung geboren, dass Streetwear mehr
                   sein kann als Fast Fashion in schwarz. Wir glauben an
                   durchdachtes Design, ehrliche Materialien und Stücke, die man
                   nicht nach einer Saison aussortiert.
@@ -343,7 +343,7 @@ export default function AboutPage() {
                 color: "var(--kr-text)",
               }}
             >
-              Bereit für KRSN?
+              Bereit für VLTG?
             </h2>
           </FadeIn>
 

@@ -419,9 +419,9 @@ export default function KontaktPage() {
                           color: "var(--hv-muted)",
                         }}
                       >
-                        Bergstraße 24
+                        Musterstraße 1
                         <br />
-                        87561 Oberstdorf
+                        10115 Berlin
                         <br />
                         Deutschland
                       </p>
@@ -448,17 +448,7 @@ export default function KontaktPage() {
                             color: "var(--hv-muted)",
                           }}
                         >
-                          +49 (0) 8321 / 94 78 0
-                        </p>
-                        <p
-                          className="text-sm"
-                          style={{
-                            fontFamily: "var(--hv-font-body)",
-                            color: "var(--hv-muted)",
-                            opacity: 0.7,
-                          }}
-                        >
-                          Fax: +49 (0) 8321 / 94 78 99
+                          +49 (0) 30 123 456 78
                         </p>
                       </div>
                     </div>
@@ -484,7 +474,7 @@ export default function KontaktPage() {
                           color: "var(--hv-muted)",
                         }}
                       >
-                        info@haven-hotel.de
+                        info@beispiel.de
                       </p>
                     </div>
                   </div>
@@ -742,7 +732,7 @@ export default function KontaktPage() {
                 color: "var(--hv-muted)",
               }}
             >
-              Bergstraße 24, 87561 Oberstdorf
+              Musterstraße 1, 10115 Berlin
             </p>
           </div>
         </div>

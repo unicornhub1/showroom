@@ -153,7 +153,7 @@ export default function StreetWearHomePage() {
                   transform: "rotate(-10deg)",
                 }}
               >
-                KRSN
+                VLTG
               </span>
             </div>
           </FadeIn>
@@ -195,7 +195,7 @@ export default function StreetWearHomePage() {
                     color: "var(--kr-muted)",
                   }}
                 >
-                  KRSN entsteht aus der Überzeugung, dass Streetwear mehr ist
+                  VLTG entsteht aus der Überzeugung, dass Streetwear mehr ist
                   als Kleidung. Es ist Haltung. Jedes Stück wird mit dem
                   gleichen Anspruch entworfen, den wir an alles anlegen: keine
                   Kompromisse bei Material, Passform und Design.
@@ -235,7 +235,7 @@ export default function StreetWearHomePage() {
                     e.currentTarget.style.borderColor = "var(--kr-charcoal)";
                   }}
                 >
-                  Mehr über KRSN
+                  Mehr über VLTG
                   <ArrowRight size={14} />
                 </Link>
               </FadeIn>

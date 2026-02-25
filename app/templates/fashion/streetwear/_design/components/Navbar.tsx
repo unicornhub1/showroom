@@ -399,7 +399,7 @@ export default function Navbar() {
                 }}
               >
                 KOSTENLOSER VERSAND AB 150 EUR — NEUE DROPS JEDEN FREITAG —
-                KRSN SS26 —
+                VLTG SS26 —
               </span>
             ))}
           </div>
@@ -422,7 +422,7 @@ export default function Navbar() {
               e.currentTarget.style.color = "var(--kr-text)";
             }}
           >
-            KRSN
+            VLTG
           </Link>
 
           {/* Center: Desktop nav links */}
@@ -546,7 +546,7 @@ export default function Navbar() {
                   color: "var(--kr-neon)",
                 }}
               >
-                KRSN
+                VLTG
               </span>
               <button
                 onClick={() => setMobileOpen(false)}
@@ -599,7 +599,7 @@ export default function Navbar() {
                 color: "var(--kr-muted)",
               }}
             >
-              Über KRSN
+              Über VLTG
             </Link>
           </div>
         </div>

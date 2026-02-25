@@ -258,7 +258,7 @@ export default function Footer() {
                 opacity: 0.6,
               }}
             >
-              2026 JARDIN. Alle Rechte vorbehalten.
+              &copy; 2025 Unicorn Factory &middot; JARDIN (Designvorlage)
             </p>
 
             <div className="flex items-center gap-6">

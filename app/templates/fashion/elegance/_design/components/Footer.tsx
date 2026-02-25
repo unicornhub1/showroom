@@ -220,7 +220,7 @@ export default function Footer() {
                 color: "var(--el-gray)",
               }}
             >
-              &copy; 2026 Maison &Eacute;l&eacute;gance. Alle Rechte vorbehalten.
+              &copy; 2025 Unicorn Factory &middot; Elegance (Designvorlage)
             </p>
 
             <div className="flex items-center gap-6">

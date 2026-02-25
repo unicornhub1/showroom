@@ -242,7 +242,7 @@ export default function Footer() {
                 color: "var(--pz-warm-gray)",
               }}
             >
-              &copy; 2026 Palazzo. Alle Rechte vorbehalten.
+              &copy; 2025 Unicorn Factory &middot; PALAZZO (Designvorlage)
             </p>
 
             <div className="flex items-center gap-6">

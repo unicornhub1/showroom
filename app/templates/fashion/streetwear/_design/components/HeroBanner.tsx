@@ -92,7 +92,7 @@ export default function HeroBanner() {
               textShadow: "4px 4px 0px rgba(205, 255, 0, 0.15)",
             }}
           >
-            KRSN
+            VLTG
           </h1>
         </FadeIn>
 
@@ -186,7 +186,7 @@ export default function HeroBanner() {
               }}
             >
               NEUE DROPS VERFÜGBAR — KOSTENLOSER VERSAND AB 150 EUR —
-              LIMITIERTE STÜCKZAHL — KRSN SS26 —
+              LIMITIERTE STÜCKZAHL — VLTG SS26 —
             </span>
           ))}
         </div>

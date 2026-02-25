@@ -281,6 +281,40 @@ Alle Bilder von Pexels sind **kostenlos für kommerzielle Nutzung**. Attribution
 - **Prefix**: `--au-*`
 - **Features**: Cart-Drawer, QuickView, Wishlist, Ringgrößen-Finder, Hairline-Borders
 
+## Fiktive Marken & Platzhalter-Standards
+
+### Warum fiktive Daten?
+Der Showroom ist ein Demo-System. Templates dürfen NICHT den Anschein erwecken, echte Unternehmen zu sein oder zu repräsentieren. Alle Templates müssen klar fiktive Platzhalter verwenden.
+
+### Standard-Platzhalter (immer diese verwenden — keine Abweichungen!)
+
+| Feld | Platzhalter |
+|---|---|
+| E-Mail | `info@beispiel.de` |
+| Telefon | `+49 (0) 30 123 456 78` |
+| Adresse | `Musterstraße 1, 10115 Berlin` |
+| Website | `www.beispiel.de` |
+| Instagram | `@beispiel` |
+| Öffnungszeiten | `Mo–Fr 10–18 Uhr, Sa 10–16 Uhr` |
+
+### Copyright-Format (IMMER so im Footer)
+```
+© 2025 Unicorn Factory · [Templatename] (Designvorlage)
+```
+Beispiel: `© 2025 Unicorn Factory · PALAZZO (Designvorlage)`
+
+### Markennamen: Regeln
+- **NIEMALS** echte Firmennamen oder real existierende Brand-Namen übernehmen
+- Markenname in Navbar/Logo darf kreativ/fiktiv sein (z.B. PALAZZO, JARDIN)
+- Aber: Copyright im Footer IMMER auf Unicorn Factory laufen lassen
+- Wenn ein Name zufällig einer realen Firma ähnelt → sofort umbenennen
+
+### Aktuelle fiktive Marken
+| Template | Brand-Name | Früher (problematisch) |
+|---|---|---|
+| fashion/streetwear | VLTG Streetwear | KRSN (= echte Marke) |
+| sport/peak | PRSM Athletics | PEAK Athletics (= echtes Fitnessstudio) |
+
 ## Wichtige Regeln für deutschen Text
 
 **KRITISCH**: Alle Templates sind auf Deutsch. Folgende Regeln MÜSSEN eingehalten werden:

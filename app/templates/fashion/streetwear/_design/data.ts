@@ -1,4 +1,4 @@
-/* ── KRSN Streetwear Mock Data ──────────────────────────────────────────── */
+/* ── VLTG Streetwear Mock Data ──────────────────────────────────────────── */
 
 export type Product = {
   id: string;
@@ -96,13 +96,13 @@ export const products: Product[] = [
     isNew: true,
   },
   {
-    id: "oversized-hoodie-krsn",
-    name: 'Oversized Hoodie "KRSN"',
+    id: "oversized-hoodie-vltg",
+    name: 'Oversized Hoodie "VLTG"',
     price: 129,
     category: "hoodies",
     collection: "basics",
     description:
-      "450gsm schwerer French Terry. Der KRSN Oversized Hoodie ist kein normaler Hoodie — er ist ein Statement. Doppelte Kapuzenschicht, Känguru-Tasche mit verstecktem Reißverschluss und gerippte Bündchen. Relaxed Fit, der trotzdem clean aussieht.",
+      "450gsm schwerer French Terry. Der VLTG Oversized Hoodie ist kein normaler Hoodie — er ist ein Statement. Doppelte Kapuzenschicht, Känguru-Tasche mit verstecktem Reißverschluss und gerippte Bündchen. Relaxed Fit, der trotzdem clean aussieht.",
     sizes: ["S", "M", "L", "XL", "XXL"],
     colors: [
       { name: "Schwarz", hex: "#0A0A0A" },
@@ -110,7 +110,7 @@ export const products: Product[] = [
       { name: "Sage", hex: "#87AE73" },
     ],
     gradient: "linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)",
-    image: "/templates/fashion/streetwear/images/products/oversized-hoodie-krsn.jpg",
+    image: "/templates/fashion/streetwear/images/products/oversized-hoodie-vltg.jpg",
   },
   {
     id: "cargo-tech-pants",
@@ -136,7 +136,7 @@ export const products: Product[] = [
     category: "accessories",
     collection: "basics",
     description:
-      "Klassische 6-Panel-Konstruktion mit flachem Schirm und gesticktem KRSN-Logo. Snapback-Verschluss für universelle Passform. Aus robuster Baumwolle mit verstärkten Nähten — ein Accessoire, das Haltung zeigt.",
+      "Klassische 6-Panel-Konstruktion mit flachem Schirm und gesticktem VLTG-Logo. Snapback-Verschluss für universelle Passform. Aus robuster Baumwolle mit verstärkten Nähten — ein Accessoire, das Haltung zeigt.",
     sizes: ["One Size"],
     colors: [
       { name: "Schwarz", hex: "#0A0A0A" },

@@ -156,18 +156,18 @@ export default function Footer() {
               }}
             >
               <p>
-                Friedrichstra&szlig;e 42
+                Musterstra&szlig;e 1
                 <br />
-                10117 Berlin-Mitte
+                10115 Berlin
               </p>
               <p>
                 <span style={{ color: "var(--sv-accent)" }}>
-                  +49 30 1234 5678
+                  +49 (0) 30 123 456 78
                 </span>
               </p>
               <p>
                 <span style={{ color: "var(--sv-accent)" }}>
-                  reservierung@saveur.de
+                  info@beispiel.de
                 </span>
               </p>
             </div>
@@ -254,7 +254,7 @@ export default function Footer() {
                 opacity: 0.6,
               }}
             >
-              &copy; 2026 SAVEUR Restaurant. Alle Rechte vorbehalten.
+              &copy; 2025 Unicorn Factory &middot; SAVEUR (Designvorlage)
             </p>
 
             <div className="flex items-center gap-6">

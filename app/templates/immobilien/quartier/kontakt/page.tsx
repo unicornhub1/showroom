@@ -298,13 +298,13 @@ export default function KontaktPage() {
                           className="text-[13px] font-medium"
                           style={{ fontFamily: "var(--qt-font-body)", color: "var(--qt-text)" }}
                         >
-                          Maximilianstraße 12
+                          Musterstraße 1
                         </p>
                         <p
                           className="text-[12px] font-light"
                           style={{ fontFamily: "var(--qt-font-body)", color: "var(--qt-muted)" }}
                         >
-                          80539 München
+                          10115 Berlin
                         </p>
                       </div>
                     </div>
@@ -318,7 +318,7 @@ export default function KontaktPage() {
                           className="text-[13px] font-medium"
                           style={{ fontFamily: "var(--qt-font-body)", color: "var(--qt-text)" }}
                         >
-                          +49 89 123 456 0
+                          +49 (0) 30 123 456 78
                         </p>
                         <p
                           className="text-[12px] font-light"
@@ -338,7 +338,7 @@ export default function KontaktPage() {
                         className="text-[13px] font-medium"
                         style={{ fontFamily: "var(--qt-font-body)", color: "var(--qt-text)" }}
                       >
-                        info@quartier-immobilien.de
+                        info@beispiel.de
                       </p>
                     </div>
                   </div>
@@ -432,32 +432,32 @@ export default function KontaktPage() {
           </FadeIn>
 
           <div className="grid gap-6 sm:grid-cols-3">
-            {[
+            [
               {
-                city: "München",
+                city: "Standort 1",
                 label: "Hauptsitz",
-                address: "Maximilianstraße 12",
-                zip: "80539 München",
-                phone: "+49 89 123 456 0",
-                email: "muenchen@quartier-immobilien.de",
+                address: "Musterstraße 1",
+                zip: "10115 Berlin",
+                phone: "+49 (0) 30 123 456 78",
+                email: "info@beispiel.de",
                 accent: "var(--qt-accent)",
               },
               {
-                city: "Starnberg",
+                city: "Standort 2",
                 label: "Filiale Süd",
-                address: "Hauptstraße 8",
-                zip: "82319 Starnberg",
-                phone: "+49 8151 789 012",
-                email: "starnberg@quartier-immobilien.de",
+                address: "Musterstraße 1",
+                zip: "10115 Berlin",
+                phone: "+49 (0) 30 123 456 78",
+                email: "info@beispiel.de",
                 accent: "var(--qt-accent)",
               },
               {
-                city: "Grünwald",
+                city: "Standort 3",
                 label: "Filiale",
-                address: "Rathausstraße 3",
-                zip: "82031 Grünwald",
-                phone: "+49 89 649 345 0",
-                email: "gruenwald@quartier-immobilien.de",
+                address: "Musterstraße 1",
+                zip: "10115 Berlin",
+                phone: "+49 (0) 30 123 456 78",
+                email: "info@beispiel.de",
                 accent: "var(--qt-gold)",
               },
             ].map((office, i) => (
@@ -553,7 +553,7 @@ export default function KontaktPage() {
                       color: "var(--qt-accent)",
                     }}
                   >
-                    München
+                    Standort 1
                   </span>
                 </div>
               </div>
@@ -573,7 +573,7 @@ export default function KontaktPage() {
                       color: "var(--qt-accent)",
                     }}
                   >
-                    Starnberg
+                    Standort 2
                   </span>
                 </div>
               </div>
@@ -593,7 +593,7 @@ export default function KontaktPage() {
                       color: "var(--qt-gold)",
                     }}
                   >
-                    Grünwald
+                    Standort 3
                   </span>
                 </div>
               </div>
@@ -610,7 +610,7 @@ export default function KontaktPage() {
                     color: "var(--qt-muted)",
                   }}
                 >
-                  Standorte im Großraum München
+                  Unsere Standorte
                 </p>
               </div>
             </div>

@@ -21,7 +21,7 @@ interface WishlistContextValue {
 const WishlistContext = createContext<WishlistContextValue | null>(null);
 
 /* ── Storage key ───────────────────────────────────────────────────────── */
-const STORAGE_KEY = "krsn-wishlist";
+const STORAGE_KEY = "vltg-wishlist";
 
 /* ── Provider ──────────────────────────────────────────────────────────── */
 

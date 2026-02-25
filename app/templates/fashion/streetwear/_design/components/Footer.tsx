@@ -13,7 +13,7 @@ const SHOP_LINKS = [
 ];
 
 const INFO_LINKS = [
-  { label: "Über KRSN", href: `${BASE}/about` },
+  { label: "Über VLTG", href: `${BASE}/about` },
   { label: "Größenguide", href: `${BASE}/size-guide` },
   { label: "Versand & Retouren", href: `${BASE}/about` },
   { label: "Kontakt", href: `${BASE}/about` },
@@ -47,7 +47,7 @@ export default function Footer() {
                 color: "var(--kr-text)",
               }}
             >
-              KRSN
+              VLTG
             </h3>
             <p
               className="mt-4 text-sm leading-relaxed"
@@ -224,7 +224,7 @@ export default function Footer() {
                 color: "var(--kr-muted)",
               }}
             >
-              &copy; 2026 KRSN. Alle Rechte vorbehalten.
+              © 2025 Unicorn Factory · VLTG (Designvorlage)
             </p>
 
             <div className="flex items-center gap-6">

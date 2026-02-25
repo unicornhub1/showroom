@@ -19,12 +19,12 @@ const workSans = Work_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'PEAK Athletics | Fitness Studio',
+  title: 'PRSM Athletics | Fitness Studio',
   description:
     'Dein Premium Fitness Studio. Functional Training, HIIT, Kraft und mehr. Kein Limit.',
 };
 
-export default function PeakLayout({
+export default function PRSMLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (

@@ -129,7 +129,7 @@ export default function SizeGuidePage() {
             >
               Finde deine perfekte Größe. Alle Angaben in Zentimetern.
               Im Zweifelsfall empfehlen wir, eine Größe größer zu wählen
-              für den typischen KRSN Oversized Fit.
+              für den typischen VLTG Oversized Fit.
             </p>
             <div
               className="mt-6 h-[2px] w-16"
@@ -175,7 +175,7 @@ export default function SizeGuidePage() {
                     color: "var(--kr-muted)",
                   }}
                 >
-                  Körpermaße in Zentimetern. KRSN fällt generell oversized
+                  Körpermaße in Zentimetern. VLTG fällt generell oversized
                   aus.
                 </p>
               </div>
@@ -348,7 +348,7 @@ export default function SizeGuidePage() {
                 color: "var(--kr-text)",
               }}
             >
-              Hinweis: KRSN Produkte fallen generell etwas oversized aus.
+              Hinweis: VLTG Produkte fallen generell etwas oversized aus.
               Wenn du einen engeren Fit bevorzugst, empfehlen wir, eine
               Größe kleiner zu wählen. Bei Fragen erreichst du uns jederzeit.
             </p>

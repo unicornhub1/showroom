@@ -400,7 +400,7 @@ export default function KontaktPage() {
                             name="telefon"
                             value={formData.telefon}
                             onChange={handleChange}
-                            placeholder="0681 ..."
+                            placeholder="+49 ..."
                             className="w-full rounded-xl border px-4 py-3 text-[15px] outline-none transition-all duration-300 focus:ring-2 focus:ring-[var(--vt-accent)] focus:ring-opacity-20"
                             style={{
                               fontFamily: "var(--vt-font-body)",

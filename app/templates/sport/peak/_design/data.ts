@@ -1,5 +1,5 @@
 /* ============================================
-   PEAK Athletics — Data & Types
+   PRSM Athletics — Data & Types
    ============================================ */
 
 // ---- Types ----
@@ -278,7 +278,7 @@ export const membershipTiers: MembershipTier[] = [
 export const faqs: FAQ[] = [
   {
     question: 'Kann ich ein kostenloses Probetraining machen?',
-    answer: 'Ja! Wir bieten ein kostenloses Probetraining an, damit du PEAK Athletics kennenlernen kannst. Vereinbare einfach einen Termin über unser Kontaktformular oder ruf uns direkt an.',
+    answer: 'Ja! Wir bieten ein kostenloses Probetraining an, damit du PRSM Athletics kennenlernen kannst. Vereinbare einfach einen Termin über unser Kontaktformular oder ruf uns direkt an.',
   },
   {
     question: 'Gibt es eine Mindestvertragslaufzeit?',
@@ -314,10 +314,10 @@ export const openingHours: OpeningHour[] = [
 // ---- Contact Info ----
 
 export const contactInfo = {
-  address: 'Industriestraße 42, 10115 Berlin',
-  phone: '+49 30 123 456 78',
-  email: 'info@peak-athletics.de',
-  instagram: '@peak_athletics',
+  address: 'Musterstraße 1, 10115 Berlin',
+  phone: '+49 (0) 30 123 456 78',
+  email: 'info@beispiel.de',
+  instagram: '@prsm.athletics',
 };
 
 // ---- Format Price ----

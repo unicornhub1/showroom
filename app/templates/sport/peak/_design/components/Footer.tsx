@@ -69,7 +69,7 @@ export default function Footer() {
                 alignItems: 'baseline',
               }}
             >
-              PEAK
+              PRSM
               <span
                 style={{
                   display: 'inline-block',
@@ -237,7 +237,7 @@ export default function Footer() {
               color: 'var(--pk-muted)',
             }}
           >
-            &copy; 2026 PEAK Athletics. Alle Rechte vorbehalten.
+            © 2025 Unicorn Factory · PRSM (Designvorlage)
           </p>
           <p
             style={{

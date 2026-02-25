@@ -48,7 +48,7 @@ export const TEMPLATES: Template[] = [
   },
   {
     slug: 'fashion/streetwear',
-    name: 'KRSN Streetwear',
+    name: 'VLTG Streetwear',
     branch: 'fashion',
     type: 'shop',
     description:
@@ -132,7 +132,7 @@ export const TEMPLATES: Template[] = [
   },
   {
     slug: 'sport/peak',
-    name: 'PEAK Athletics',
+    name: 'PRSM Athletics',
     branch: 'sport',
     type: 'website',
     description:

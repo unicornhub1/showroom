@@ -596,7 +596,7 @@ export default function KontaktPage() {
                         marginBottom: '4px',
                       }}
                     >
-                      PEAK Athletics
+                      PRSM Athletics
                     </div>
                     <div
                       style={{
@@ -605,7 +605,7 @@ export default function KontaktPage() {
                         color: 'var(--pk-muted)',
                       }}
                     >
-                      Berlin Mitte — Industriestraße 42
+                      Berlin Mitte — Musterstraße 1
                     </div>
                   </div>
                   {/* Pulse ring */}

@@ -32,7 +32,7 @@ const jetbrainsMono = JetBrains_Mono({
 /* ── Metadata ──────────────────────────────────────────────────────────── */
 
 export const metadata: Metadata = {
-  title: "KRSN | Streetwear & Sneakers",
+  title: "VLTG | Streetwear & Sneakers",
   description:
     "Streetwear ohne Kompromisse. Limitierte Drops, Premium Sneakers und urbane Essentials.",
 };
