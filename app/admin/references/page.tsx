@@ -49,10 +49,15 @@ export default function AdminReferencesPage() {
     setShowForm(true);
   }
 
-  function handleSave() {
+  function handleSave(newRef?: Reference) {
     setShowForm(false);
     setEditRef(null);
-    fetchReferences();
+    if (newRef) {
+      // Prepend newly created reference immediately — no refetch needed
+      setReferences((prev) => [newRef, ...prev]);
+    } else {
+      fetchReferences();
+    }
   }
 
   function handleCancel() {
@@ -70,7 +75,7 @@ export default function AdminReferencesPage() {
             className="inline-flex items-center gap-2 bg-showroom-accent hover:bg-showroom-accent-hover text-white font-medium rounded-lg px-4 py-2.5 text-sm transition-colors cursor-pointer"
           >
             <Plus className="h-4 w-4" />
-            Neue Referenz hinzufuegen
+            Neue Referenz hinzufügen
           </button>
         )}
       </div>

@@ -31,7 +31,7 @@ const TYPES = [
 ];
 
 interface ReferenceFormProps {
-  onSave: () => void;
+  onSave: (ref?: Reference) => void;
   onCancel: () => void;
   editRef?: Reference | null;
 }
@@ -69,7 +69,8 @@ export default function ReferenceForm({ onSave, onCancel, editRef }: ReferenceFo
         throw new Error(data?.error || 'Fehler beim Speichern');
       }
 
-      onSave();
+      const saved = await res.json();
+      onSave(editRef ? undefined : saved);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Ein Fehler ist aufgetreten');
     } finally {
@@ -81,7 +82,7 @@ export default function ReferenceForm({ onSave, onCancel, editRef }: ReferenceFo
     <div className="bg-white border border-showroom-border rounded-xl p-6">
       <div className="flex items-center justify-between mb-6">
         <h3 className="text-lg font-semibold text-showroom-text">
-          {editRef ? 'Referenz bearbeiten' : 'Neue Referenz hinzufuegen'}
+          {editRef ? 'Referenz bearbeiten' : 'Neue Referenz hinzufügen'}
         </h3>
         <button
           onClick={onCancel}
