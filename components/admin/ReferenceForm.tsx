@@ -31,7 +31,7 @@ const TYPES = [
 ];
 
 interface ReferenceFormProps {
-  onSave: (ref?: Reference) => void;
+  onSave: (ref: Reference) => void;
   onCancel: () => void;
   editRef?: Reference | null;
 }
