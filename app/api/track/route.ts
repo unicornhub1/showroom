@@ -1,12 +1,7 @@
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import { SignJWT, jwtVerify } from 'jose';
-import {
-  getShareLink,
-  getShareLinkAllowedSlugs,
-  recordLinkVisit,
-  recordTemplateClick,
-} from '@/lib/db';
+import { getShareLink, recordLinkVisit, recordTemplateClick } from '@/lib/db';
 
 function getJwtSecret() {
   const secret = process.env.JWT_SECRET;
@@ -23,8 +18,8 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Missing fields' }, { status: 400 });
     }
 
-    // Try JWT decode to get the real link ID
-    let linkId = token;
+    // Try JWT decode first
+    let linkId: string = token;
     let jwtSlugs: string[] | null = null;
 
     try {
@@ -32,23 +27,45 @@ export async function POST(request: Request) {
       linkId = payload.id as string;
       jwtSlugs = payload.slugs as string[];
     } catch {
-      // token is a plain link ID (legacy)
-    }
-
-    // Validate the share link exists and is active
-    const link = getShareLink(linkId);
-    if (!link || !link.is_active) {
-      return NextResponse.json({ error: 'Invalid link' }, { status: 404 });
+      // plain ID (legacy)
     }
 
     if (type === 'visit') {
       const userAgent = request.headers.get('user-agent') || undefined;
       const referrer = request.headers.get('referer') || undefined;
+
+      // If JWT is valid, trust it and set cookie immediately — no DB needed
+      if (jwtSlugs !== null) {
+        const sessionJwt = await new SignJWT({ token: linkId, slugs: jwtSlugs })
+          .setProtectedHeader({ alg: 'HS256' })
+          .setExpirationTime('30d')
+          .sign(getJwtSecret());
+
+        const cookieStore = await cookies();
+        cookieStore.set('share-session', sessionJwt, {
+          path: '/',
+          httpOnly: true,
+          sameSite: 'lax',
+          maxAge: 60 * 60 * 24 * 30,
+        });
+
+        // Analytics best-effort (SQLite may be empty on Vercel)
+        try {
+          const link = getShareLink(linkId);
+          if (link) recordLinkVisit(link.id, userAgent, referrer);
+        } catch {}
+
+        return NextResponse.json({ ok: true });
+      }
+
+      // Legacy: plain ID — validate via DB
+      const link = getShareLink(linkId);
+      if (!link || !link.is_active) {
+        return NextResponse.json({ error: 'Invalid link' }, { status: 404 });
+      }
       recordLinkVisit(link.id, userAgent, referrer);
 
-      // Set the share-session cookie (signed JWT with allowed slugs)
-      const allowedSlugs = jwtSlugs || getShareLinkAllowedSlugs(linkId) || [];
-      const sessionJwt = await new SignJWT({ token: linkId, slugs: allowedSlugs })
+      const sessionJwt = await new SignJWT({ token: linkId, slugs: [] })
         .setProtectedHeader({ alg: 'HS256' })
         .setExpirationTime('30d')
         .sign(getJwtSecret());
@@ -66,12 +83,15 @@ export async function POST(request: Request) {
 
     if (type === 'click') {
       if (!template_slug) {
-        return NextResponse.json(
-          { error: 'Missing template_slug' },
-          { status: 400 }
-        );
+        return NextResponse.json({ error: 'Missing template_slug' }, { status: 400 });
       }
-      recordTemplateClick(link.id, template_slug);
+
+      // Analytics best-effort
+      try {
+        const link = getShareLink(linkId);
+        if (link) recordTemplateClick(link.id, template_slug);
+      } catch {}
+
       return NextResponse.json({ ok: true });
     }
 
