@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, type FormEvent } from 'react';
-import { X, Copy, Check, Layout } from 'lucide-react';
+import { X, Layout } from 'lucide-react';
 import { TEMPLATES, BRANCH_LABELS } from '@/lib/templates';
 
 type ShareLink = {
@@ -56,8 +56,6 @@ export default function LinkForm({ onSave, onCancel, editLink }: LinkFormProps) 
   );
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState('');
-  const [createdLink, setCreatedLink] = useState<string | null>(null);
-  const [copied, setCopied] = useState(false);
 
   function toggleBranch(key: string) {
     setSelectedBranches((prev) =>
@@ -112,71 +110,12 @@ export default function LinkForm({ onSave, onCancel, editLink }: LinkFormProps) 
         throw new Error(data?.error || 'Fehler beim Speichern');
       }
 
-      if (!editLink) {
-        const data = await res.json();
-        const linkUrl = `${window.location.origin}/s/${data.urlToken}`;
-        setCreatedLink(linkUrl);
-      } else {
-        onSave();
-      }
+      onSave();
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Ein Fehler ist aufgetreten');
     } finally {
       setSaving(false);
     }
-  }
-
-  async function copyLink() {
-    if (!createdLink) return;
-    await navigator.clipboard.writeText(createdLink);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  }
-
-  // Show success state after creation
-  if (createdLink) {
-    return (
-      <div className="bg-white border border-showroom-border rounded-xl p-6">
-        <div className="flex items-center justify-between mb-4">
-          <h3 className="text-lg font-semibold text-showroom-text">Link erstellt</h3>
-          <button
-            onClick={() => {
-              setCreatedLink(null);
-              onSave();
-            }}
-            className="text-showroom-muted hover:text-showroom-text transition-colors cursor-pointer"
-          >
-            <X className="h-5 w-5" />
-          </button>
-        </div>
-
-        <p className="text-sm text-showroom-muted mb-3">
-          Der Share-Link wurde erfolgreich erstellt:
-        </p>
-
-        <div className="flex items-center gap-2">
-          <code className="flex-1 bg-showroom-bg border border-showroom-border rounded-lg px-4 py-2.5 text-sm text-showroom-accent break-all">
-            {createdLink}
-          </code>
-          <button
-            onClick={copyLink}
-            className="shrink-0 bg-showroom-accent hover:bg-showroom-accent-hover text-white rounded-lg px-3 py-2.5 transition-colors cursor-pointer"
-          >
-            {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
-          </button>
-        </div>
-
-        <button
-          onClick={() => {
-            setCreatedLink(null);
-            onSave();
-          }}
-          className="mt-4 text-sm text-showroom-muted hover:text-showroom-text transition-colors cursor-pointer"
-        >
-          Fertig
-        </button>
-      </div>
-    );
   }
 
   return (
