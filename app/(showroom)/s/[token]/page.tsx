@@ -47,10 +47,10 @@ export default async function TokenShowroomPage({ params }: PageProps) {
             <div className="text-center">
               <div className="mx-auto mb-6 h-px w-12 bg-showroom-accent" />
               <h1 className="text-2xl font-bold text-showroom-text">
-                Link ung&uuml;ltig
+                Link ungültig
               </h1>
               <p className="mt-4 text-showroom-muted">
-                Dieser Link ist ung&uuml;ltig oder abgelaufen.
+                Dieser Link ist ungültig oder abgelaufen.
               </p>
               <Link
                 href="/"
@@ -80,7 +80,7 @@ export default async function TokenShowroomPage({ params }: PageProps) {
                   Link abgelaufen
                 </h1>
                 <p className="mt-4 text-showroom-muted">
-                  Dieser Link ist ung&uuml;ltig oder abgelaufen.
+                  Dieser Link ist ungültig oder abgelaufen.
                 </p>
                 <Link
                   href="/"
@@ -140,7 +140,7 @@ export default async function TokenShowroomPage({ params }: PageProps) {
           <div className="mx-auto max-w-4xl text-center">
             <div className="animate-fade-in-up mx-auto mb-6 h-px w-12 bg-showroom-accent" />
             <h1 className="animate-fade-in-up-delay-1 text-3xl font-bold tracking-tight text-showroom-text md:text-5xl">
-              Ausgew&auml;hlte Templates
+              Ausgewählte Templates
             </h1>
             {linkName && (
               <p className="animate-fade-in-up-delay-2 mt-4 text-showroom-muted">
@@ -165,7 +165,7 @@ export default async function TokenShowroomPage({ params }: PageProps) {
           ) : (
             <div className="flex flex-col items-center justify-center py-24">
               <p className="text-lg text-showroom-muted">
-                Keine Templates verf&uuml;gbar.
+                Keine Templates verfügbar.
               </p>
             </div>
           )}
@@ -177,7 +177,7 @@ export default async function TokenShowroomPage({ params }: PageProps) {
             <div className="mb-8 flex items-center gap-4">
               <div className="h-px flex-1 bg-showroom-border/50" />
               <h2 className="text-sm font-semibold tracking-wider text-showroom-muted uppercase">
-                Ausgew&auml;hlte Referenzen
+                Ausgewählte Referenzen
               </h2>
               <div className="h-px flex-1 bg-showroom-border/50" />
             </div>
