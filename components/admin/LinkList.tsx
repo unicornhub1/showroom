@@ -19,6 +19,7 @@ type ShareLink = {
   view_count?: number;
   last_viewed_at?: string | null;
   template_clicks?: TemplateClick[];
+  urlToken?: string;
 };
 
 const BRANCH_LABELS: Record<string, string> = {
@@ -49,10 +50,10 @@ export default function LinkList({ links, onEdit, onRefresh }: LinkListProps) {
   const [deletingId, setDeletingId] = useState<string | null>(null);
   const [togglingId, setTogglingId] = useState<string | null>(null);
 
-  async function copyLink(id: string) {
-    const url = `${window.location.origin}/s/${id}`;
+  async function copyLink(link: ShareLink) {
+    const url = `${window.location.origin}/s/${link.urlToken || link.id}`;
     await navigator.clipboard.writeText(url);
-    setCopiedId(id);
+    setCopiedId(link.id);
     setTimeout(() => setCopiedId(null), 2000);
   }
 
@@ -146,24 +147,37 @@ export default function LinkList({ links, onEdit, onRefresh }: LinkListProps) {
 
                 {/* Filters */}
                 <div className="flex flex-wrap gap-1.5 mb-2">
-                  {link.filters?.branches?.map((b) => (
-                    <span
-                      key={b}
-                      className="text-[11px] bg-showroom-accent/10 text-showroom-accent px-2 py-0.5 rounded-md"
-                    >
-                      {BRANCH_LABELS[b] || b}
-                    </span>
-                  ))}
-                  {link.filters?.types?.map((t) => (
-                    <span
-                      key={t}
-                      className="text-[11px] bg-showroom-bg text-showroom-muted px-2 py-0.5 rounded-md"
-                    >
-                      {TYPE_LABELS[t] || t}
-                    </span>
-                  ))}
-                  {(!link.filters?.branches?.length && !link.filters?.types?.length) && (
-                    <span className="text-[11px] text-showroom-muted">Alle Templates</span>
+                  {link.allowed_templates && link.allowed_templates.length > 0 ? (
+                    link.allowed_templates.map((slug) => {
+                      const name = slug.split('/').pop() || slug;
+                      return (
+                        <span key={slug} className="text-[11px] bg-showroom-accent/10 text-showroom-accent px-2 py-0.5 rounded-md">
+                          {name.charAt(0).toUpperCase() + name.slice(1)}
+                        </span>
+                      );
+                    })
+                  ) : (
+                    <>
+                      {link.filters?.branches?.map((b) => (
+                        <span
+                          key={b}
+                          className="text-[11px] bg-showroom-accent/10 text-showroom-accent px-2 py-0.5 rounded-md"
+                        >
+                          {BRANCH_LABELS[b] || b}
+                        </span>
+                      ))}
+                      {link.filters?.types?.map((t) => (
+                        <span
+                          key={t}
+                          className="text-[11px] bg-showroom-bg text-showroom-muted px-2 py-0.5 rounded-md"
+                        >
+                          {TYPE_LABELS[t] || t}
+                        </span>
+                      ))}
+                      {(!link.filters?.branches?.length && !link.filters?.types?.length) && (
+                        <span className="text-[11px] text-showroom-muted">Alle Templates</span>
+                      )}
+                    </>
                   )}
                 </div>
 
@@ -232,7 +246,7 @@ export default function LinkList({ links, onEdit, onRefresh }: LinkListProps) {
 
                 {/* Copy */}
                 <button
-                  onClick={() => copyLink(link.id)}
+                  onClick={() => copyLink(link)}
                   title="Link kopieren"
                   className="p-2 text-showroom-muted hover:text-showroom-text hover:bg-showroom-bg rounded-lg transition-colors cursor-pointer"
                 >
@@ -245,7 +259,7 @@ export default function LinkList({ links, onEdit, onRefresh }: LinkListProps) {
 
                 {/* Open */}
                 <a
-                  href={`/s/${link.id}`}
+                  href={`/s/${link.urlToken || link.id}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   title="Link oeffnen"

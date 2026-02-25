@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { jwtVerify } from "jose";
 import { getShareLink, getTemplateVisibility, getVisibleReferences } from "@/lib/db";
 import { TEMPLATES } from "@/lib/templates";
 import type { Template } from "@/lib/templates";
@@ -13,42 +14,31 @@ interface PageProps {
   params: Promise<{ token: string }>;
 }
 
+function getJwtSecret() {
+  const secret = process.env.JWT_SECRET;
+  if (!secret) throw new Error('JWT_SECRET not set');
+  return new TextEncoder().encode(secret);
+}
+
 export default async function TokenShowroomPage({ params }: PageProps) {
   const { token } = await params;
-  const shareLink = getShareLink(token);
 
-  // Invalid or inactive link
-  if (!shareLink || !shareLink.is_active) {
-    return (
-      <>
-        <Header minimal />
-        <main className="flex min-h-screen items-center justify-center px-6">
-          <div className="text-center">
-            <div className="mx-auto mb-6 h-px w-12 bg-showroom-accent" />
-            <h1 className="text-2xl font-bold text-showroom-text">
-              Link ung&uuml;ltig
-            </h1>
-            <p className="mt-4 text-showroom-muted">
-              Dieser Link ist ung&uuml;ltig oder abgelaufen.
-            </p>
-            <Link
-              href="/"
-              className="mt-8 inline-flex items-center gap-2 rounded-full border border-showroom-border bg-showroom-surface px-5 py-2.5 text-sm font-medium text-showroom-text transition-all hover:border-showroom-accent/50 hover:text-showroom-accent"
-            >
-              <ArrowLeft className="h-4 w-4" />
-              Zum Showroom
-            </Link>
-          </div>
-        </main>
-        <Footer />
-      </>
-    );
-  }
+  // Try JWT decode first (self-contained, no DB lookup needed)
+  let resolvedSlugs: string[] | null = null;
+  let linkName = '';
+  let firstBranch: string | undefined;
+  let firstType: string | undefined;
 
-  // Check expiry
-  if (shareLink.expires_at) {
-    const expiresAt = new Date(shareLink.expires_at);
-    if (expiresAt < new Date()) {
+  try {
+    const { payload } = await jwtVerify(token, getJwtSecret());
+    resolvedSlugs = payload.slugs as string[];
+    linkName = (payload.name as string) || '';
+  } catch {
+    // Fallback: legacy DB lookup for old-style plain-ID tokens
+    const shareLink = getShareLink(token);
+
+    // Invalid or inactive link
+    if (!shareLink || !shareLink.is_active) {
       return (
         <>
           <Header minimal />
@@ -56,7 +46,7 @@ export default async function TokenShowroomPage({ params }: PageProps) {
             <div className="text-center">
               <div className="mx-auto mb-6 h-px w-12 bg-showroom-accent" />
               <h1 className="text-2xl font-bold text-showroom-text">
-                Link abgelaufen
+                Link ung&uuml;ltig
               </h1>
               <p className="mt-4 text-showroom-muted">
                 Dieser Link ist ung&uuml;ltig oder abgelaufen.
@@ -74,42 +64,68 @@ export default async function TokenShowroomPage({ params }: PageProps) {
         </>
       );
     }
-  }
 
-  // Determine which templates to show
-  let templates: Template[];
-
-  if (shareLink.allowed_templates && shareLink.allowed_templates.length > 0) {
-    // Show only specifically allowed templates
-    templates = TEMPLATES.filter((t) =>
-      shareLink.allowed_templates!.includes(t.slug)
-    );
-  } else {
-    // Filter by branch/type from the share link
-    const filterBranches = shareLink.filters.branches || [];
-    const filterTypes = shareLink.filters.types || [];
-
-    if (filterBranches.length === 0 && filterTypes.length === 0) {
-      templates = [...TEMPLATES];
-    } else {
-      templates = TEMPLATES.filter((t) => {
-        const branchMatch =
-          filterBranches.length === 0 || filterBranches.includes(t.branch);
-        const typeMatch =
-          filterTypes.length === 0 || filterTypes.includes(t.type);
-        return branchMatch && typeMatch;
-      });
+    // Check expiry
+    if (shareLink.expires_at) {
+      const expiresAt = new Date(shareLink.expires_at);
+      if (expiresAt < new Date()) {
+        return (
+          <>
+            <Header minimal />
+            <main className="flex min-h-screen items-center justify-center px-6">
+              <div className="text-center">
+                <div className="mx-auto mb-6 h-px w-12 bg-showroom-accent" />
+                <h1 className="text-2xl font-bold text-showroom-text">
+                  Link abgelaufen
+                </h1>
+                <p className="mt-4 text-showroom-muted">
+                  Dieser Link ist ung&uuml;ltig oder abgelaufen.
+                </p>
+                <Link
+                  href="/"
+                  className="mt-8 inline-flex items-center gap-2 rounded-full border border-showroom-border bg-showroom-surface px-5 py-2.5 text-sm font-medium text-showroom-text transition-all hover:border-showroom-accent/50 hover:text-showroom-accent"
+                >
+                  <ArrowLeft className="h-4 w-4" />
+                  Zum Showroom
+                </Link>
+              </div>
+            </main>
+            <Footer />
+          </>
+        );
+      }
     }
+
+    // Resolve slugs from shareLink
+    if (shareLink.allowed_templates && shareLink.allowed_templates.length > 0) {
+      resolvedSlugs = shareLink.allowed_templates;
+    } else {
+      const filterBranches = shareLink.filters.branches || [];
+      const filterTypes = shareLink.filters.types || [];
+      if (filterBranches.length === 0 && filterTypes.length === 0) {
+        resolvedSlugs = TEMPLATES.map((t) => t.slug);
+      } else {
+        resolvedSlugs = TEMPLATES.filter((t) => {
+          const bm = filterBranches.length === 0 || filterBranches.includes(t.branch);
+          const tm = filterTypes.length === 0 || filterTypes.includes(t.type);
+          return bm && tm;
+        }).map((t) => t.slug);
+      }
+      firstBranch = shareLink.filters.branches?.[0];
+      firstType = shareLink.filters.types?.[0];
+    }
+
+    linkName = shareLink.name;
   }
 
-  // Filter by visibility
-  templates = templates.filter((t) => getTemplateVisibility(t.slug));
+  // Filter templates by resolved slugs and visibility
+  let templates: Template[] = TEMPLATES.filter((t) =>
+    resolvedSlugs!.includes(t.slug)
+  ).filter((t) => getTemplateVisibility(t.slug));
 
   const allowedSlugs = templates.map((t) => t.slug);
 
   // Get matching references
-  const firstBranch = shareLink.filters.branches?.[0];
-  const firstType = shareLink.filters.types?.[0];
   const references = getVisibleReferences(firstBranch, firstType);
 
   return (
@@ -124,9 +140,9 @@ export default async function TokenShowroomPage({ params }: PageProps) {
             <h1 className="animate-fade-in-up-delay-1 text-3xl font-bold tracking-tight text-showroom-text md:text-5xl">
               Ausgew&auml;hlte Templates
             </h1>
-            {shareLink.name && (
+            {linkName && (
               <p className="animate-fade-in-up-delay-2 mt-4 text-showroom-muted">
-                {shareLink.name}
+                {linkName}
               </p>
             )}
           </div>

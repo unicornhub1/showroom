@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
-import { SignJWT } from 'jose';
+import { SignJWT, jwtVerify } from 'jose';
 import {
   getShareLink,
   getShareLinkAllowedSlugs,
@@ -23,8 +23,20 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Missing fields' }, { status: 400 });
     }
 
+    // Try JWT decode to get the real link ID
+    let linkId = token;
+    let jwtSlugs: string[] | null = null;
+
+    try {
+      const { payload } = await jwtVerify(token, getJwtSecret());
+      linkId = payload.id as string;
+      jwtSlugs = payload.slugs as string[];
+    } catch {
+      // token is a plain link ID (legacy)
+    }
+
     // Validate the share link exists and is active
-    const link = getShareLink(token);
+    const link = getShareLink(linkId);
     if (!link || !link.is_active) {
       return NextResponse.json({ error: 'Invalid link' }, { status: 404 });
     }
@@ -35,8 +47,8 @@ export async function POST(request: Request) {
       recordLinkVisit(link.id, userAgent, referrer);
 
       // Set the share-session cookie (signed JWT with allowed slugs)
-      const allowedSlugs = getShareLinkAllowedSlugs(token) || [];
-      const sessionJwt = await new SignJWT({ token, slugs: allowedSlugs })
+      const allowedSlugs = jwtSlugs || getShareLinkAllowedSlugs(linkId) || [];
+      const sessionJwt = await new SignJWT({ token: linkId, slugs: allowedSlugs })
         .setProtectedHeader({ alg: 'HS256' })
         .setExpirationTime('30d')
         .sign(getJwtSecret());

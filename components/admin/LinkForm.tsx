@@ -114,7 +114,7 @@ export default function LinkForm({ onSave, onCancel, editLink }: LinkFormProps) 
 
       if (!editLink) {
         const data = await res.json();
-        const linkUrl = `${window.location.origin}/s/${data.id}`;
+        const linkUrl = `${window.location.origin}/s/${data.urlToken}`;
         setCreatedLink(linkUrl);
       } else {
         onSave();
