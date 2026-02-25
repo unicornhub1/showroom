@@ -1,0 +1,131 @@
+/* ── AURUM Design Tokens ────────────────────────────────────────────────── */
+
+:root {
+  /* Color Palette — ultra-refined jewelry luxury */
+  --au-white: #FAFAF8;
+  --au-cream: #F3F0EB;
+  --au-black: #1A1A1A;
+  --au-charcoal: #4A4A4A;
+  --au-muted: #9A9590;
+  --au-gold: #C9A96E;
+  --au-gold-light: rgba(201, 169, 110, 0.12);
+  --au-rose: #B76E79;
+  --au-line: #E8E4DF;
+
+  /* Font Families (set from next/font CSS variables) */
+  --au-font-serif: var(--font-cormorant-garamond), "Georgia", serif;
+  --au-font-sans: var(--font-outfit), "Helvetica Neue", sans-serif;
+}
+
+/* ── Animations ────────────────────────────────────────────────────────── */
+
+@keyframes au-fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes au-fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes au-gentle-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes au-gold-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes au-scale-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ── Utility Classes ───────────────────────────────────────────────────── */
+
+.au-fade-up {
+  animation: au-fade-up 0.7s ease-out both;
+}
+
+.au-fade-in {
+  animation: au-fade-in 0.5s ease-out both;
+}
+
+.au-gentle-float {
+  animation: au-gentle-float 6s ease-in-out infinite;
+}
+
+.au-gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--au-line) 25%,
+    var(--au-gold-light) 50%,
+    var(--au-line) 75%
+  );
+  background-size: 200% 100%;
+  animation: au-gold-shimmer 2.4s ease-in-out infinite;
+}
+
+/* ── Cursor pointer fix (Tailwind v4 removes default pointer on buttons) ── */
+button,
+[role="button"],
+select,
+summary {
+  cursor: pointer;
+}
+
+/* ── Hairline border utility ───────────────────────────────────────────── */
+
+.au-hairline {
+  border-width: 0.5px;
+}
+
+/* ── Gold underline reveal on hover ────────────────────────────────────── */
+
+.au-hover-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.au-hover-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 0.5px;
+  background-color: var(--au-gold);
+  transition: width 0.4s ease-out;
+}
+
+.au-hover-underline:hover::after {
+  width: 100%;
+}

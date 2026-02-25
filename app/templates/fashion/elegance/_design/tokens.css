@@ -1,0 +1,101 @@
+/* ── Maison Elegance Design Tokens ──────────────────────────────────────── */
+
+:root {
+  /* Color Palette — closer to Ralph Lauren's restrained luxury */
+  --el-navy: #041E3C;
+  --el-cream: #FAF9F6;
+  --el-gold: #B8A070;
+  --el-offwhite: #FFFFFF;
+  --el-black: #1A1A1A;
+  --el-gray: #71706E;
+  --el-light: #E5E3DE;
+  --el-rose: #9E4B3C;
+
+  /* Font Families (set from next/font CSS variables) */
+  --el-font-serif: var(--font-playfair-display), "Georgia", serif;
+  --el-font-sans: var(--font-raleway), "Helvetica Neue", sans-serif;
+}
+
+/* ── Animations ────────────────────────────────────────────────────────── */
+
+@keyframes ken-burns {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* ── Utility Classes ───────────────────────────────────────────────────── */
+
+.el-ken-burns {
+  animation: ken-burns 20s ease-in-out infinite alternate;
+}
+
+.el-fade-up {
+  animation: fade-up 0.6s ease-out both;
+}
+
+/* ── Cursor pointer fix (Tailwind v4 removes default pointer on buttons) ── */
+button,
+[role="button"],
+select,
+summary {
+  cursor: pointer;
+}
+
+/* ── Page Transition Animations ────────────────────────────────────────── */
+
+@keyframes el-monogram-pulse {
+  0%, 100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes el-line-sweep {
+  0% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 0.5;
+  }
+}
+
+.el-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--el-light) 25%,
+    var(--el-cream) 50%,
+    var(--el-light) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.8s ease-in-out infinite;
+}

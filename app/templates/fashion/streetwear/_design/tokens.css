@@ -1,0 +1,121 @@
+/* ── KRSN Streetwear Design Tokens ──────────────────────────────────────── */
+
+:root {
+  /* Color Palette — Brutalist streetwear */
+  --kr-black: #0A0A0A;
+  --kr-dark: #141414;
+  --kr-charcoal: #1E1E1E;
+  --kr-text: #F5F5F0;
+  --kr-muted: #6B6B6B;
+  --kr-neon: #CDFF00;
+  --kr-neon-dim: rgba(205, 255, 0, 0.15);
+  --kr-red: #FF3B30;
+
+  /* Font Families (set from next/font CSS variables) */
+  --kr-font-heading: var(--font-bebas-neue), "Impact", sans-serif;
+  --kr-font-body: var(--font-dm-sans), "Helvetica Neue", sans-serif;
+  --kr-font-mono: var(--font-jetbrains-mono), "Courier New", monospace;
+}
+
+/* ── Animations ────────────────────────────────────────────────────────── */
+
+@keyframes kr-glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes kr-fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes kr-slide-in {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes kr-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes kr-pulse-neon {
+  0%, 100% {
+    box-shadow: 0 0 5px var(--kr-neon), 0 0 10px rgba(205, 255, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 10px var(--kr-neon), 0 0 20px rgba(205, 255, 0, 0.5);
+  }
+}
+
+/* ── Utility Classes ───────────────────────────────────────────────────── */
+
+.kr-fade-up {
+  animation: kr-fade-up 0.5s ease-out both;
+}
+
+.kr-slide-in {
+  animation: kr-slide-in 0.35s ease-out both;
+}
+
+.kr-marquee {
+  animation: kr-marquee 20s linear infinite;
+}
+
+.kr-glitch:hover {
+  animation: kr-glitch 0.3s ease-in-out;
+}
+
+/* ── Cursor pointer fix (Tailwind v4 removes default pointer on buttons) ── */
+button,
+[role="button"],
+select,
+summary {
+  cursor: pointer;
+}
+
+/* ── Scrollbar styling ─────────────────────────────────────────────────── */
+.kr-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.kr-scrollbar::-webkit-scrollbar-track {
+  background: var(--kr-dark);
+}
+.kr-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--kr-charcoal);
+}
+.kr-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--kr-neon);
+}

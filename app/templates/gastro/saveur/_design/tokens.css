@@ -1,0 +1,165 @@
+/* ── SAVEUR Restaurant Design Tokens ────────────────────────────────────── */
+
+:root {
+  /* Color Palette — dark, warm, editorial luxury */
+  --sv-bg: #1A1412;
+  --sv-surface: #231C18;
+  --sv-text: #F5F0EB;
+  --sv-muted: #8A7E76;
+  --sv-accent: #C8956C;
+  --sv-accent-hover: #D4A67D;
+  --sv-wine: #6B2D3E;
+  --sv-gold: #D4AF37;
+  --sv-border: rgba(200, 149, 108, 0.15);
+  --sv-border-strong: rgba(200, 149, 108, 0.3);
+
+  /* Font Families (set from next/font CSS variables) */
+  --sv-font-display: var(--font-fraunces), "Georgia", serif;
+  --sv-font-body: var(--font-karla), "Helvetica Neue", sans-serif;
+}
+
+/* ── Keyframe Animations ──────────────────────────────────────────────── */
+
+@keyframes sv-fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sv-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-8px) rotate(0.5deg);
+  }
+  66% {
+    transform: translateY(4px) rotate(-0.3deg);
+  }
+}
+
+@keyframes sv-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes sv-glow {
+  0%, 100% {
+    opacity: 0.4;
+    filter: blur(40px);
+  }
+  50% {
+    opacity: 0.7;
+    filter: blur(50px);
+  }
+}
+
+@keyframes sv-letter-reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) rotateX(-40deg);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+    filter: blur(0px);
+  }
+}
+
+@keyframes sv-line-expand {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes sv-pulse-border {
+  0%, 100% {
+    border-color: rgba(200, 149, 108, 0.15);
+  }
+  50% {
+    border-color: rgba(200, 149, 108, 0.4);
+  }
+}
+
+@keyframes sv-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* ── Utility Classes ──────────────────────────────────────────────────── */
+
+.sv-fade-up {
+  animation: sv-fade-up 0.7s ease-out both;
+}
+
+.sv-float {
+  animation: sv-float 6s ease-in-out infinite;
+}
+
+.sv-marquee {
+  animation: sv-marquee 30s linear infinite;
+}
+
+.sv-marquee-slow {
+  animation: sv-marquee 45s linear infinite;
+}
+
+.sv-glow {
+  animation: sv-glow 4s ease-in-out infinite;
+}
+
+.sv-letter-reveal {
+  animation: sv-letter-reveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.sv-line-expand {
+  animation: sv-line-expand 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ── Cursor pointer fix (Tailwind v4 removes default pointer on buttons) ── */
+
+button,
+[role="button"],
+select,
+summary {
+  cursor: pointer;
+}
+
+/* ── Scrollbar Styling ────────────────────────────────────────────────── */
+
+.sv-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sv-scrollbar::-webkit-scrollbar-track {
+  background: var(--sv-bg);
+}
+
+.sv-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--sv-accent);
+  border-radius: 2px;
+}
+
+/* ── Selection Color ──────────────────────────────────────────────────── */
+
+::selection {
+  background: rgba(200, 149, 108, 0.3);
+  color: var(--sv-text);
+}

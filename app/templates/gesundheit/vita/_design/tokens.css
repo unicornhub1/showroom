@@ -1,0 +1,217 @@
+/* ── VITA Medical Practice Design Tokens ──────────────────────────────── */
+
+:root {
+  /* Color Palette — calming, trustworthy, modern wellness */
+  --vt-bg: #F9FAFB;
+  --vt-surface: #FFFFFF;
+  --vt-card: #F0F7F4;
+  --vt-text: #1A2332;
+  --vt-muted: #6B7B8D;
+  --vt-accent: #0D9488;
+  --vt-accent-hover: #0F766E;
+  --vt-accent-soft: rgba(13, 148, 136, 0.08);
+  --vt-warm: #F59E0B;
+  --vt-mint: #ECFDF5;
+  --vt-blush: #FEF2F2;
+  --vt-border: rgba(13, 148, 136, 0.12);
+  --vt-border-strong: rgba(13, 148, 136, 0.25);
+  --vt-shadow: 0 2px 24px rgba(26, 35, 50, 0.06);
+  --vt-shadow-lg: 0 8px 40px rgba(26, 35, 50, 0.08);
+
+  /* Font Families (set from next/font CSS variables) */
+  --vt-font-display: var(--font-lexend), "Helvetica Neue", sans-serif;
+  --vt-font-body: var(--font-crimson-pro), "Georgia", serif;
+}
+
+/* ── Keyframe Animations ──────────────────────────────────────────────── */
+
+@keyframes vt-fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes vt-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-12px) rotate(0.5deg);
+  }
+  66% {
+    transform: translateY(6px) rotate(-0.3deg);
+  }
+}
+
+@keyframes vt-pulse-soft {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(13, 148, 136, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(13, 148, 136, 0);
+  }
+}
+
+@keyframes vt-blob {
+  0%, 100% {
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+  }
+  25% {
+    border-radius: 73% 27% 38% 62% / 52% 68% 32% 48%;
+  }
+  50% {
+    border-radius: 28% 72% 55% 45% / 38% 32% 68% 62%;
+  }
+  75% {
+    border-radius: 60% 40% 30% 70% / 62% 48% 52% 38%;
+  }
+}
+
+@keyframes vt-blob-alt {
+  0%, 100% {
+    border-radius: 58% 42% 30% 70% / 55% 45% 55% 45%;
+  }
+  25% {
+    border-radius: 27% 73% 62% 38% / 68% 52% 48% 32%;
+  }
+  50% {
+    border-radius: 72% 28% 45% 55% / 32% 38% 62% 68%;
+  }
+  75% {
+    border-radius: 40% 60% 70% 30% / 48% 62% 38% 52%;
+  }
+}
+
+@keyframes vt-breathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+@keyframes vt-slide-in-right {
+  0% {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes vt-line-grow {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes vt-hero-gradient {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes vt-star-twinkle {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* ── Utility Classes ──────────────────────────────────────────────────── */
+
+.vt-fade-up {
+  animation: vt-fade-up 0.7s ease-out both;
+}
+
+.vt-float {
+  animation: vt-float 8s ease-in-out infinite;
+}
+
+.vt-float-slow {
+  animation: vt-float 12s ease-in-out infinite;
+}
+
+.vt-pulse-soft {
+  animation: vt-pulse-soft 2.5s ease-in-out infinite;
+}
+
+.vt-blob {
+  animation: vt-blob 12s ease-in-out infinite;
+}
+
+.vt-blob-alt {
+  animation: vt-blob-alt 14s ease-in-out infinite;
+}
+
+.vt-breathe {
+  animation: vt-breathe 6s ease-in-out infinite;
+}
+
+.vt-line-grow {
+  animation: vt-line-grow 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+  transform-origin: left center;
+}
+
+/* ── Cursor pointer fix (Tailwind v4 removes default pointer on buttons) ── */
+
+button,
+[role="button"],
+select,
+summary {
+  cursor: pointer;
+}
+
+/* ── Selection Color ──────────────────────────────────────────────────── */
+
+::selection {
+  background: rgba(13, 148, 136, 0.15);
+  color: var(--vt-text);
+}
+
+/* ── Scrollbar Styling ────────────────────────────────────────────────── */
+
+.vt-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.vt-scrollbar::-webkit-scrollbar-track {
+  background: var(--vt-bg);
+}
+
+.vt-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--vt-accent);
+  border-radius: 2px;
+}
+
+/* ── Organic Card Hover ───────────────────────────────────────────────── */
+
+.vt-card-hover {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.3s ease;
+}
+
+.vt-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(13, 148, 136, 0.1);
+  border-color: var(--vt-accent) !important;
+}

@@ -1,0 +1,174 @@
+/* ── HAVEN Hotel Design Tokens ──────────────────────────────────────────── */
+
+:root {
+  /* Color Palette */
+  --hv-bg: #FAF8F5;
+  --hv-surface: #FFFFFF;
+  --hv-card: #F5F1EC;
+  --hv-text: #1A1A1A;
+  --hv-muted: #8A8580;
+  --hv-accent: #B8965A;
+  --hv-accent-hover: #A07D45;
+  --hv-forest: #2C3E2D;
+  --hv-sage: #D4DACE;
+  --hv-blush: #E8DDD3;
+
+  /* Font Families (set from next/font CSS variables) */
+  --hv-font-display: var(--font-tenor-sans), "Helvetica Neue", sans-serif;
+  --hv-font-body: var(--font-eb-garamond), "Georgia", serif;
+}
+
+/* ── Keyframe Animations ──────────────────────────────────────────────── */
+
+@keyframes hv-fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hv-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes hv-shimmer {
+  0% {
+    background-position: -300% 0;
+  }
+  100% {
+    background-position: 300% 0;
+  }
+}
+
+@keyframes hv-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes hv-scale-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes hv-line-grow {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes hv-hero-text {
+  0% {
+    opacity: 0;
+    letter-spacing: 0.6em;
+  }
+  100% {
+    opacity: 1;
+    letter-spacing: 0.35em;
+  }
+}
+
+@keyframes hv-gentle-pulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* ── Utility Classes ──────────────────────────────────────────────────── */
+
+.hv-fade-up {
+  animation: hv-fade-up 0.7s ease-out both;
+}
+
+.hv-float {
+  animation: hv-float 6s ease-in-out infinite;
+}
+
+.hv-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--hv-card) 25%,
+    var(--hv-blush) 50%,
+    var(--hv-card) 75%
+  );
+  background-size: 300% 100%;
+  animation: hv-shimmer 3s ease-in-out infinite;
+}
+
+.hv-hero-text {
+  animation: hv-hero-text 1.8s cubic-bezier(0.25, 0.1, 0.25, 1) both;
+}
+
+.hv-line-grow {
+  animation: hv-line-grow 1.2s ease-out both;
+  transform-origin: left center;
+}
+
+/* ── Cursor pointer fix (Tailwind v4 removes default pointer on buttons) ── */
+
+button,
+[role="button"],
+select,
+summary {
+  cursor: pointer;
+}
+
+/* ── Smooth scrollbar ─────────────────────────────────────────────────── */
+
+.hv-scroll-smooth {
+  scroll-behavior: smooth;
+}
+
+.hv-scroll-smooth::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.hv-scroll-smooth::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.hv-scroll-smooth::-webkit-scrollbar-thumb {
+  background: var(--hv-blush);
+  border-radius: 3px;
+}
+
+/* ── Golden line accent ──────────────────────────────────────────────── */
+
+.hv-gold-line {
+  position: relative;
+}
+
+.hv-gold-line::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 48px;
+  height: 1.5px;
+  background: var(--hv-accent);
+}

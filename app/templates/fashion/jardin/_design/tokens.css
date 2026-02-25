@@ -1,0 +1,90 @@
+/* ── JARDIN Design Tokens ────────────────────────────────────────────── */
+
+:root {
+  /* Color Palette — warm, natural, contemporary French */
+  --jd-cream: #FAF7F2;
+  --jd-sage: #7A8B6F;
+  --jd-terra: #C17C5F;
+  --jd-charcoal: #3D3D3D;
+  --jd-sand: #D4C5B2;
+  --jd-rose: #C4A08A;
+  --jd-offwhite: #FFFDF9;
+  --jd-light: #EDE8E0;
+  --jd-sage-light: #E8EDE5;
+  --jd-terra-light: #F2E5DF;
+
+  /* Font Families (set from next/font CSS variables) */
+  --jd-font-serif: var(--font-cormorant-garamond), "Georgia", serif;
+  --jd-font-sans: var(--font-jost), "Helvetica Neue", sans-serif;
+}
+
+/* ── Animations ──────────────────────────────────────────────────────── */
+
+@keyframes jd-fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes jd-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes jd-slide-in {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes jd-gentle-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* ── Utility Classes ─────────────────────────────────────────────────── */
+
+.jd-fade-up {
+  animation: jd-fade-up 0.6s ease-out both;
+}
+
+.jd-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--jd-light) 25%,
+    var(--jd-cream) 50%,
+    var(--jd-light) 75%
+  );
+  background-size: 200% 100%;
+  animation: jd-shimmer 1.8s ease-in-out infinite;
+}
+
+.jd-slide-in {
+  animation: jd-slide-in 0.4s ease-out both;
+}
+
+/* ── Cursor pointer fix (Tailwind v4 removes default pointer on buttons) ── */
+button,
+[role="button"],
+select,
+summary {
+  cursor: pointer;
+}

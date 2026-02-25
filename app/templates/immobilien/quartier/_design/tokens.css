@@ -1,0 +1,211 @@
+/* ── QUARTIER Design Tokens ─────────────────────────────────────────────── */
+
+:root {
+  /* Color Palette */
+  --qt-bg: #F7F6F4;
+  --qt-surface: #FFFFFF;
+  --qt-card: #EEECEA;
+  --qt-dark: #0A1628;
+  --qt-text: #1A1A1A;
+  --qt-muted: #7A7670;
+  --qt-accent: #2563EB;
+  --qt-accent-hover: #1D4ED8;
+  --qt-accent-soft: rgba(37, 99, 235, 0.08);
+  --qt-gold: #B8965A;
+  --qt-border: #E2E0DC;
+  --qt-border-light: #EEECEA;
+
+  /* Font Families (set via next/font CSS variables) */
+  --qt-font-display: var(--font-syne), "Helvetica Neue", sans-serif;
+  --qt-font-body: var(--font-figtree), "Helvetica Neue", sans-serif;
+}
+
+/* ── Keyframe Animations ──────────────────────────────────────────────── */
+
+@keyframes qt-fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes qt-slide-right {
+  0% {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes qt-line-draw {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes qt-line-draw-y {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes qt-count-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes qt-hero-letter {
+  0% {
+    opacity: 0;
+    transform: translateY(60px) rotateX(20deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+  }
+}
+
+@keyframes qt-grid-reveal {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.06;
+  }
+}
+
+@keyframes qt-pulse-subtle {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes qt-dash-move {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -20;
+  }
+}
+
+@keyframes qt-rotate-slow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ── Utility Classes ──────────────────────────────────────────────────── */
+
+.qt-fade-up {
+  animation: qt-fade-up 0.7s ease-out both;
+}
+
+.qt-slide-right {
+  animation: qt-slide-right 0.7s ease-out both;
+}
+
+.qt-line-draw {
+  animation: qt-line-draw 1.2s ease-out both;
+  transform-origin: left center;
+}
+
+.qt-line-draw-y {
+  animation: qt-line-draw-y 1.2s ease-out both;
+  transform-origin: top center;
+}
+
+/* Geometric grid pattern overlay */
+.qt-grid-pattern {
+  background-image:
+    linear-gradient(rgba(37, 99, 235, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.qt-grid-pattern-dense {
+  background-image:
+    linear-gradient(rgba(37, 99, 235, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.03) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+/* Blueprint-style crosshair marks */
+.qt-crosshair::before,
+.qt-crosshair::after {
+  content: '';
+  position: absolute;
+  background: var(--qt-accent);
+  opacity: 0.15;
+}
+.qt-crosshair::before {
+  width: 1px;
+  height: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.qt-crosshair::after {
+  width: 20px;
+  height: 1px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* ── Cursor pointer fix (Tailwind v4 removes default pointer) ─────── */
+
+button,
+[role="button"],
+select,
+summary {
+  cursor: pointer;
+}
+
+/* ── Selection ────────────────────────────────────────────────────────── */
+
+::selection {
+  background: var(--qt-accent-soft);
+  color: var(--qt-dark);
+}
+
+/* ── Scrollbar ────────────────────────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--qt-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--qt-border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--qt-muted);
+}

@@ -1,0 +1,182 @@
+/* ================================================================
+   WERKBANK Design Tokens
+   Meisterbetrieb für Holz & Innenausbau
+   ================================================================ */
+
+:root {
+  /* ── Colors ─────────────────────────────────────────────────── */
+  --wb-bg: #F5EDE3;
+  --wb-surface: #FFFFFF;
+  --wb-card: #EDE5DA;
+  --wb-dark: #3D2B1F;
+  --wb-text: #2C1E14;
+  --wb-muted: #8A7B6E;
+  --wb-accent: #C45C3B;
+  --wb-accent-hover: #A94C30;
+  --wb-steel: #5A6672;
+  --wb-leather: #8B5E3C;
+  --wb-forge: #D4A574;
+  --wb-divider: #D4C9BC;
+  --wb-card-hover: #E6DDD2;
+}
+
+/* ── Cursor Pointer Fix (Tailwind v4) ─────────────────────────── */
+button,
+[role="button"],
+select,
+summary {
+  cursor: pointer;
+}
+
+/* ── Animations ───────────────────────────────────────────────── */
+
+@keyframes wb-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes wb-slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes wb-slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes wb-draw-line {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes wb-pulse-warm {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(196, 92, 59, 0.3); }
+  50% { box-shadow: 0 0 0 12px rgba(196, 92, 59, 0); }
+}
+
+@keyframes wb-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes wb-rotate-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes wb-counter-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+@keyframes wb-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes wb-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ── Utility Classes ──────────────────────────────────────────── */
+
+.wb-wood-texture {
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 40px,
+      rgba(60, 40, 20, 0.02) 40px,
+      rgba(60, 40, 20, 0.02) 41px
+    ),
+    repeating-linear-gradient(
+      85deg,
+      transparent,
+      transparent 80px,
+      rgba(60, 40, 20, 0.015) 80px,
+      rgba(60, 40, 20, 0.015) 82px
+    );
+}
+
+.wb-text-gradient {
+  background: linear-gradient(135deg, var(--wb-accent), var(--wb-forge));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.wb-line-draw {
+  position: relative;
+  overflow: hidden;
+}
+
+.wb-line-draw::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(90deg, var(--wb-accent), var(--wb-forge));
+  transition: width 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.wb-line-draw:hover::after {
+  width: 100%;
+}
+
+/* ── Selection Style ──────────────────────────────────────────── */
+
+::selection {
+  background-color: rgba(196, 92, 59, 0.15);
+  color: var(--wb-text);
+}
+
+/* ── Scrollbar ────────────────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--wb-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--wb-muted);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--wb-accent);
+}

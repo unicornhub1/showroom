@@ -1,0 +1,75 @@
+/* ── PALAZZO Design Tokens ──────────────────────────────────────────────── */
+
+:root {
+  /* Color Palette — Dark Italian luxury */
+  --pz-black: #0A0A0A;
+  --pz-gold: #C9A55C;
+  --pz-ivory: #FFFEF7;
+  --pz-charcoal: #2A2A2A;
+  --pz-warm-gray: #7A7267;
+  --pz-burgundy: #6B2D3E;
+
+  /* Font Families (set from next/font CSS variables) */
+  --pz-font-serif: var(--font-dm-serif-display), "Georgia", serif;
+  --pz-font-sans: var(--font-plus-jakarta-sans), "Helvetica Neue", sans-serif;
+}
+
+/* ── Animations ────────────────────────────────────────────────────────── */
+
+@keyframes ken-burns {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* ── Utility Classes ───────────────────────────────────────────────────── */
+
+.pz-ken-burns {
+  animation: ken-burns 20s ease-in-out infinite alternate;
+}
+
+.pz-fade-up {
+  animation: fade-up 0.6s ease-out both;
+}
+
+.pz-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--pz-charcoal) 25%,
+    var(--pz-warm-gray) 50%,
+    var(--pz-charcoal) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.8s ease-in-out infinite;
+}
+
+/* ── Cursor pointer fix (Tailwind v4 removes default pointer on buttons) ── */
+button,
+[role="button"],
+select,
+summary {
+  cursor: pointer;
+}

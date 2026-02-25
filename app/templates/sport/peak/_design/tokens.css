@@ -1,0 +1,183 @@
+/* ============================================
+   PEAK Athletics — Design Tokens
+   Bold. Raw. Industrial. Premium Fitness.
+   ============================================ */
+
+:root {
+  /* ---- Backgrounds ---- */
+  --pk-bg: #0D0D0D;
+  --pk-surface: #161616;
+  --pk-card: #1C1C1C;
+
+  /* ---- Text ---- */
+  --pk-text: #FFFFFF;
+  --pk-muted: #6B6B6B;
+
+  /* ---- Accent ---- */
+  --pk-accent: #FF4500;
+  --pk-accent-hover: #FF5722;
+  --pk-accent-dim: rgba(255, 69, 0, 0.15);
+
+  /* ---- Structural ---- */
+  --pk-steel: #2A2A2A;
+
+  /* ---- Spacing ---- */
+  --pk-nav-h: 80px;
+
+  /* ---- Radius ---- */
+  --pk-radius-sm: 4px;
+  --pk-radius-md: 8px;
+  --pk-radius-lg: 12px;
+}
+
+/* ---- Cursor pointer fix (Tailwind v4) ---- */
+button,
+[role="button"],
+select,
+summary,
+a {
+  cursor: pointer;
+}
+
+/* ============================================
+   Keyframe Animations
+   ============================================ */
+
+@keyframes pk-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pk-slide-right {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pk-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes pk-pulse-red {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 69, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(255, 69, 0, 0.6), 0 0 80px rgba(255, 69, 0, 0.2);
+  }
+}
+
+@keyframes pk-diagonal {
+  from {
+    transform: translateX(-100%) skewX(-45deg);
+  }
+  to {
+    transform: translateX(200%) skewX(-45deg);
+  }
+}
+
+@keyframes pk-hero-text {
+  from {
+    opacity: 0;
+    transform: translateY(60px) skewY(3deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) skewY(0deg);
+  }
+}
+
+@keyframes pk-count-in {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pk-line-grow {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes pk-glow-breathe {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+
+/* Diagonal line pattern */
+.pk-diagonal-lines {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 10px,
+    rgba(255, 69, 0, 0.03) 10px,
+    rgba(255, 69, 0, 0.03) 11px
+  );
+}
+
+/* Geometric grid pattern */
+.pk-grid-pattern {
+  background-image:
+    linear-gradient(rgba(255, 69, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 69, 0, 0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Accent glow */
+.pk-glow {
+  box-shadow: 0 0 30px rgba(255, 69, 0, 0.3), 0 0 60px rgba(255, 69, 0, 0.1);
+}
+
+/* Text clip utility */
+.pk-text-clip {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Scrollbar styling */
+.pk-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.pk-scrollbar::-webkit-scrollbar-track {
+  background: var(--pk-surface);
+}
+.pk-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--pk-steel);
+  border-radius: 3px;
+}
+.pk-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--pk-accent);
+}
