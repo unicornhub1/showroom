@@ -97,6 +97,59 @@ export async function deleteReferenceEC(id: number): Promise<void> {
   await ecWrite('references', refs.filter((r) => r.id !== id));
 }
 
+// ── Share Links ────────────────────────────────────────────────────────────────
+
+export type ShareLinkEC = {
+  id: string;
+  name: string;
+  filters: { branches?: string[]; types?: string[] };
+  allowed_templates?: string[];
+  created_at: string;
+  expires_at: string | null;
+  is_active: boolean;
+  urlToken: string;
+};
+
+async function getLinks(): Promise<ShareLinkEC[]> {
+  try {
+    const links = await get<ShareLinkEC[]>('share_links');
+    return links ?? [];
+  } catch {
+    return [];
+  }
+}
+
+export async function getAllShareLinksEC(): Promise<ShareLinkEC[]> {
+  const links = await getLinks();
+  return [...links].sort(
+    (a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+  );
+}
+
+export async function getShareLinkEC(id: string): Promise<ShareLinkEC | null> {
+  const links = await getLinks();
+  return links.find((l) => l.id === id) ?? null;
+}
+
+export async function createShareLinkEC(link: ShareLinkEC): Promise<ShareLinkEC> {
+  const links = await getLinks();
+  await ecWrite('share_links', [...links, link]);
+  return link;
+}
+
+export async function updateShareLinkEC(
+  id: string,
+  data: Partial<ShareLinkEC>
+): Promise<void> {
+  const links = await getLinks();
+  await ecWrite('share_links', links.map((l) => (l.id === id ? { ...l, ...data } : l)));
+}
+
+export async function deleteShareLinkEC(id: string): Promise<void> {
+  const links = await getLinks();
+  await ecWrite('share_links', links.filter((l) => l.id !== id));
+}
+
 // ── Template Visibility ────────────────────────────────────────────────────────
 
 async function getVisMap(): Promise<Record<string, boolean>> {

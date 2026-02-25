@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { getShareLink, updateShareLink, deleteShareLink } from '@/lib/db';
+import { getShareLinkEC, updateShareLinkEC, deleteShareLinkEC } from '@/lib/edge-store';
 
 export async function PATCH(
   request: Request,
@@ -7,22 +7,20 @@ export async function PATCH(
 ) {
   try {
     const { id } = await params;
-    const existing = getShareLink(id);
+    const existing = await getShareLinkEC(id);
     if (!existing) {
-      return NextResponse.json(
-        { error: 'Share link not found' },
-        { status: 404 }
-      );
+      return NextResponse.json({ error: 'Share link not found' }, { status: 404 });
     }
 
     const body = await request.json();
-    updateShareLink(id, body);
+    await updateShareLinkEC(id, body);
 
-    const updated = getShareLink(id);
+    const updated = await getShareLinkEC(id);
     return NextResponse.json(updated);
-  } catch {
+  } catch (e) {
+    console.error('[PATCH /api/admin/links/[id]]', e);
     return NextResponse.json(
-      { error: 'Failed to update share link' },
+      { error: e instanceof Error ? e.message : 'Failed to update share link' },
       { status: 500 }
     );
   }
@@ -34,19 +32,17 @@ export async function DELETE(
 ) {
   try {
     const { id } = await params;
-    const existing = getShareLink(id);
+    const existing = await getShareLinkEC(id);
     if (!existing) {
-      return NextResponse.json(
-        { error: 'Share link not found' },
-        { status: 404 }
-      );
+      return NextResponse.json({ error: 'Share link not found' }, { status: 404 });
     }
 
-    deleteShareLink(id);
+    await deleteShareLinkEC(id);
     return NextResponse.json({ success: true });
-  } catch {
+  } catch (e) {
+    console.error('[DELETE /api/admin/links/[id]]', e);
     return NextResponse.json(
-      { error: 'Failed to delete share link' },
+      { error: e instanceof Error ? e.message : 'Failed to delete share link' },
       { status: 500 }
     );
   }
