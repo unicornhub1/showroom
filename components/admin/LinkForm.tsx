@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, type FormEvent } from 'react';
-import { X, Layout } from 'lucide-react';
+import { X, Check, Layout } from 'lucide-react';
 import { TEMPLATES, BRANCH_LABELS } from '@/lib/templates';
 
 type ShareLink = {
