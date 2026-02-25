@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { redirect } from "next/navigation";
+import { cookies } from "next/headers";
 import { jwtVerify } from "jose";
 import { getShareLink } from "@/lib/db";
 import { getAllTemplateVisibilityEC, getVisibleReferencesEC } from "@/lib/edge-store";
@@ -23,6 +25,21 @@ function getJwtSecret() {
 
 export default async function TokenShowroomPage({ params }: PageProps) {
   const { token } = await params;
+
+  // Ensure share-session cookie is set before the customer can click templates.
+  // If missing or invalid, redirect through /api/activate which sets it server-side.
+  const cookieStore = await cookies();
+  const sessionCookie = cookieStore.get('share-session')?.value;
+  let sessionValid = false;
+  if (sessionCookie) {
+    try {
+      await jwtVerify(sessionCookie, getJwtSecret());
+      sessionValid = true;
+    } catch {}
+  }
+  if (!sessionValid) {
+    redirect(`/api/activate?token=${encodeURIComponent(token)}`);
+  }
 
   // Try JWT decode first (self-contained, no DB lookup needed)
   let resolvedSlugs: string[] | null = null;
