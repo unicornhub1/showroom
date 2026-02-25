@@ -42,10 +42,11 @@ const TYPE_LABELS: Record<string, string> = {
 interface LinkListProps {
   links: ShareLink[];
   onEdit: (link: ShareLink) => void;
-  onRefresh: () => void;
+  onUpdate: (updated: ShareLink) => void;
+  onDelete: (id: string) => void;
 }
 
-export default function LinkList({ links, onEdit, onRefresh }: LinkListProps) {
+export default function LinkList({ links, onEdit, onUpdate, onDelete }: LinkListProps) {
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [deletingId, setDeletingId] = useState<string | null>(null);
   const [togglingId, setTogglingId] = useState<string | null>(null);
@@ -59,24 +60,29 @@ export default function LinkList({ links, onEdit, onRefresh }: LinkListProps) {
 
   async function toggleActive(link: ShareLink) {
     setTogglingId(link.id);
+    // Optimistic update
+    onUpdate({ ...link, is_active: !link.is_active });
     try {
       await fetch(`/api/admin/links/${link.id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ is_active: !link.is_active }),
       });
-      onRefresh();
+    } catch {
+      // Revert on error
+      onUpdate(link);
     } finally {
       setTogglingId(null);
     }
   }
 
   async function deleteLink(id: string) {
-    if (!confirm('Diesen Link wirklich loeschen?')) return;
+    if (!confirm('Diesen Link wirklich löschen?')) return;
     setDeletingId(id);
+    // Optimistic remove
+    onDelete(id);
     try {
       await fetch(`/api/admin/links/${id}`, { method: 'DELETE' });
-      onRefresh();
     } finally {
       setDeletingId(null);
     }

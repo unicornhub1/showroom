@@ -33,23 +33,28 @@ const TYPE_LABELS: Record<string, string> = {
 interface ReferenceListProps {
   references: Reference[];
   onEdit: (ref: Reference) => void;
-  onRefresh: () => void;
+  onUpdate: (updated: Reference) => void;
+  onDelete: (id: number) => void;
 }
 
-export default function ReferenceList({ references, onEdit, onRefresh }: ReferenceListProps) {
+export default function ReferenceList({ references, onEdit, onUpdate, onDelete }: ReferenceListProps) {
   const [deletingId, setDeletingId] = useState<number | null>(null);
   const [togglingId, setTogglingId] = useState<number | null>(null);
   const [brokenImages, setBrokenImages] = useState<Set<number>>(new Set());
 
   async function toggleVisibility(ref: Reference) {
     setTogglingId(ref.id);
+    // Optimistic update
+    onUpdate({ ...ref, is_visible: !ref.is_visible });
     try {
       await fetch(`/api/admin/references/${ref.id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ is_visible: !ref.is_visible }),
       });
-      onRefresh();
+    } catch {
+      // Revert on error
+      onUpdate(ref);
     } finally {
       setTogglingId(null);
     }
@@ -58,9 +63,10 @@ export default function ReferenceList({ references, onEdit, onRefresh }: Referen
   async function deleteReference(id: number) {
     if (!confirm('Diese Referenz wirklich löschen?')) return;
     setDeletingId(id);
+    // Optimistic remove
+    onDelete(id);
     try {
       await fetch(`/api/admin/references/${id}`, { method: 'DELETE' });
-      onRefresh();
     } finally {
       setDeletingId(null);
     }

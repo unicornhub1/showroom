@@ -49,15 +49,24 @@ export default function AdminReferencesPage() {
     setShowForm(true);
   }
 
-  function handleSave(newRef?: Reference) {
+  function handleSave(saved: Reference) {
     setShowForm(false);
-    setEditRef(null);
-    if (newRef) {
-      // Prepend newly created reference immediately — no refetch needed
-      setReferences((prev) => [newRef, ...prev]);
+    if (editRef) {
+      // Update existing reference in place
+      setReferences((prev) => prev.map((r) => r.id === saved.id ? saved : r));
     } else {
-      fetchReferences();
+      // Prepend newly created reference
+      setReferences((prev) => [saved, ...prev]);
     }
+    setEditRef(null);
+  }
+
+  function handleUpdate(updated: Reference) {
+    setReferences((prev) => prev.map((r) => r.id === updated.id ? updated : r));
+  }
+
+  function handleDelete(id: number) {
+    setReferences((prev) => prev.filter((r) => r.id !== id));
   }
 
   function handleCancel() {
@@ -110,7 +119,8 @@ export default function AdminReferencesPage() {
         <ReferenceList
           references={references}
           onEdit={handleEdit}
-          onRefresh={fetchReferences}
+          onUpdate={handleUpdate}
+          onDelete={handleDelete}
         />
       )}
     </div>

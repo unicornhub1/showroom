@@ -13,6 +13,7 @@ type ShareLink = {
   created_at: string;
   expires_at: string | null;
   is_active: boolean;
+  urlToken?: string;
 };
 
 export default function AdminLinksPage() {
@@ -49,10 +50,24 @@ export default function AdminLinksPage() {
     setShowForm(true);
   }
 
-  function handleSave() {
+  function handleSave(saved: ShareLink) {
     setShowForm(false);
+    if (editLink) {
+      // Update existing link in place
+      setLinks((prev) => prev.map((l) => l.id === saved.id ? saved : l));
+    } else {
+      // Prepend newly created link
+      setLinks((prev) => [saved, ...prev]);
+    }
     setEditLink(null);
-    fetchLinks();
+  }
+
+  function handleUpdate(updated: ShareLink) {
+    setLinks((prev) => prev.map((l) => l.id === updated.id ? updated : l));
+  }
+
+  function handleDelete(id: string) {
+    setLinks((prev) => prev.filter((l) => l.id !== id));
   }
 
   function handleCancel() {
@@ -99,7 +114,7 @@ export default function AdminLinksPage() {
           ))}
         </div>
       ) : (
-        <LinkList links={links} onEdit={handleEdit} onRefresh={fetchLinks} />
+        <LinkList links={links} onEdit={handleEdit} onUpdate={handleUpdate} onDelete={handleDelete} />
       )}
     </div>
   );

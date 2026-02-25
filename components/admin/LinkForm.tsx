@@ -32,7 +32,7 @@ const TYPES = [
 ];
 
 interface LinkFormProps {
-  onSave: () => void;
+  onSave: (saved: ShareLink) => void;
   onCancel: () => void;
   editLink?: ShareLink | null;
 }
@@ -110,7 +110,8 @@ export default function LinkForm({ onSave, onCancel, editLink }: LinkFormProps) 
         throw new Error(data?.error || 'Fehler beim Speichern');
       }
 
-      onSave();
+      const saved = await res.json();
+      onSave(saved);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Ein Fehler ist aufgetreten');
     } finally {

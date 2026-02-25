@@ -70,7 +70,7 @@ export default function ReferenceForm({ onSave, onCancel, editRef }: ReferenceFo
       }
 
       const saved = await res.json();
-      onSave(editRef ? undefined : saved);
+      onSave(saved);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Ein Fehler ist aufgetreten');
     } finally {

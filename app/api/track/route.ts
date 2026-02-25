@@ -36,7 +36,7 @@ export async function POST(request: Request) {
 
       // If JWT is valid, trust it and set cookie immediately — no DB needed
       if (jwtSlugs !== null) {
-        const sessionJwt = await new SignJWT({ token: linkId, slugs: jwtSlugs })
+        const sessionJwt = await new SignJWT({ token: linkId, urlToken: token, slugs: jwtSlugs })
           .setProtectedHeader({ alg: 'HS256' })
           .setExpirationTime('30d')
           .sign(getJwtSecret());

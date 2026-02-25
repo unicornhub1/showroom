@@ -27,7 +27,7 @@ export async function GET(request: Request) {
     const slugs = (payload.slugs as string[]) || [];
     const linkId = (payload.id as string) || token;
 
-    const sessionJwt = await new SignJWT({ token: linkId, slugs })
+    const sessionJwt = await new SignJWT({ token: linkId, urlToken: token, slugs })
       .setProtectedHeader({ alg: 'HS256' })
       .setExpirationTime('30d')
       .sign(getJwtSecret());
