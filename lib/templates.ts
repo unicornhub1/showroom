@@ -89,7 +89,7 @@ export const TEMPLATES: Template[] = [
     type: 'shop',
     description:
       'Dunkler, opulenter Luxus-Shop im italienischen Stil mit dramatischem Kontrast, goldenen Akzenten und exklusiver Produktinszenierung. Inkl. Warenkorb, Merkliste & Größenberater.',
-    thumbnail: '',
+    thumbnail: '/templates/fashion/palazzo/thumb.jpg',
     pages: [
       '/',
       '/collections',
@@ -108,7 +108,7 @@ export const TEMPLATES: Template[] = [
     type: 'shop',
     description:
       'Zeitgenössischer Fashion-Shop mit lichtdurchfluteter, natürlicher Ästhetik, erdigen Tönen und raffinierter Produktpräsentation. Inkl. Warenkorb, Merkliste & Größenberater.',
-    thumbnail: '',
+    thumbnail: '/templates/fashion/jardin/thumb.jpg',
     pages: [
       '/',
       '/collections',
@@ -127,7 +127,7 @@ export const TEMPLATES: Template[] = [
     type: 'website',
     description:
       'Elegante Restaurant-Website mit dunklem, warmem Ambiente, editorialer Typografie und einladender Atmosphäre für gehobene Gastronomie.',
-    thumbnail: '',
+    thumbnail: '/templates/gastro/saveur/thumb.jpg',
     pages: ['/', '/speisekarte', '/reservierung', '/ueber-uns', '/galerie'],
   },
   {
@@ -137,7 +137,7 @@ export const TEMPLATES: Template[] = [
     type: 'website',
     description:
       'Kraftvolle Fitness-Studio-Website mit rohem, industriellem Design, hohem Kontrast und energetischer Ausstrahlung.',
-    thumbnail: '',
+    thumbnail: '/templates/sport/peak/thumb.jpg',
     pages: ['/', '/kurse', '/team', '/mitgliedschaft', '/kontakt'],
   },
   {
@@ -147,7 +147,7 @@ export const TEMPLATES: Template[] = [
     type: 'website',
     description:
       'Luxuriöse Hotel-Website mit lichtdurchfluteter Ästhetik, goldenen Akzenten und einer Atmosphäre von Ruhe und Exklusivität.',
-    thumbnail: '',
+    thumbnail: '/templates/hotel/haven/thumb.jpg',
     pages: ['/', '/zimmer', '/erlebnis', '/galerie', '/kontakt'],
   },
   {
@@ -157,7 +157,7 @@ export const TEMPLATES: Template[] = [
     type: 'website',
     description:
       'Moderne Immobilien-Website mit architektonischem Design, klaren Linien und professioneller Objektpräsentation.',
-    thumbnail: '',
+    thumbnail: '/templates/immobilien/quartier/thumb.jpg',
     pages: ['/', '/objekte', '/verkaufen', '/ueber-uns', '/kontakt'],
   },
   {
@@ -167,7 +167,7 @@ export const TEMPLATES: Template[] = [
     type: 'website',
     description:
       'Vertrauenswürdige Praxis-Website mit beruhigender Farbwelt, klarer Struktur und patientenfreundlichem Design.',
-    thumbnail: '',
+    thumbnail: '/templates/gesundheit/vita/thumb.jpg',
     pages: ['/', '/leistungen', '/team', '/praxis', '/kontakt'],
   },
   {
@@ -177,7 +177,7 @@ export const TEMPLATES: Template[] = [
     type: 'website',
     description:
       'Authentische Handwerker-Website mit warmen Materialfarben, ehrlicher Typografie und handwerklichem Charakter.',
-    thumbnail: '',
+    thumbnail: '/templates/handwerk/werkbank/thumb.jpg',
     pages: ['/', '/leistungen', '/projekte', '/ueber-uns', '/kontakt'],
   },
 ];
