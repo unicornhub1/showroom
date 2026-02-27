@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import { jwtVerify } from "jose";
 import { getShareLink } from "@/lib/db";
-import { getAllTemplateVisibilityEC, getVisibleReferencesEC } from "@/lib/edge-store";
+import { getAllTemplateVisibilityEC, getVisibleReferencesEC, getShareLinkEC } from "@/lib/edge-store";
 import { TEMPLATES } from "@/lib/templates";
 import type { Template } from "@/lib/templates";
 import { Header } from "@/components/showroom/Header";
@@ -50,7 +50,19 @@ export default async function TokenShowroomPage({ params }: PageProps) {
   try {
     const { payload } = await jwtVerify(token, getJwtSecret());
     resolvedSlugs = payload.slugs as string[];
-    linkName = (payload.name as string) || '';
+    // Read name from Edge Config (live, always up-to-date).
+    // Falls back to JWT-embedded name if Edge Config lookup fails.
+    const linkId = payload.id as string;
+    if (linkId) {
+      try {
+        const ecLink = await getShareLinkEC(linkId);
+        linkName = ecLink?.name || (payload.name as string) || '';
+      } catch {
+        linkName = (payload.name as string) || '';
+      }
+    } else {
+      linkName = (payload.name as string) || '';
+    }
   } catch {
     // Fallback: legacy DB lookup for old-style plain-ID tokens
     const shareLink = getShareLink(token);

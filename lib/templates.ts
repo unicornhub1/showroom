@@ -32,7 +32,7 @@ export const TEMPLATES: Template[] = [
     branch: 'fashion',
     type: 'shop',
     description:
-      'Luxuriöser Fashion-Shop im Stil von Ralph Lauren mit eleganter Typografie, großflächigen Lifestyle-Bildern und Premium-Produktpräsentation.',
+      'Luxuriöser Fashion-Shop mit eleganter Typografie, großflächigen Lifestyle-Bildern und Premium-Produktpräsentation.',
     thumbnail: '/templates/fashion/elegance/thumb.jpg',
     pages: [
       '/',
