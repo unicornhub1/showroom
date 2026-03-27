@@ -1,0 +1,17 @@
+/* ── MERIDIAN Design Tokens ───────────────────────────────────────────────── */
+
+:root {
+  --mr-bg: #FAFAF7;
+  --mr-surface: #F0EDE8;
+  --mr-surface-alt: #E8E4DD;
+  --mr-text: #1A1A18;
+  --mr-text-muted: #7A7770;
+  --mr-gold: #B8924A;
+  --mr-gold-dark: #9A7A3C;
+  --mr-border: #DDD9D2;
+  --mr-border-dark: #C5C0B8;
+}
+
+button, [role="button"], select, summary {
+  cursor: pointer;
+}

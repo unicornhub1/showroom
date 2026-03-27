@@ -180,6 +180,26 @@ export const TEMPLATES: Template[] = [
     thumbnail: '/templates/handwerk/werkbank/thumb.jpg',
     pages: ['/', '/leistungen', '/projekte', '/ueber-uns', '/kontakt'],
   },
+  {
+    slug: 'gastro/thornfield',
+    name: 'THORNFIELD',
+    branch: 'gastro',
+    type: 'website',
+    description:
+      'Edle Whiskey-Destillerie-Website mit dunklem Leder-Look, warmen Goldtönen und traditioneller Handwerksästhetik.',
+    thumbnail: '/templates/gastro/thornfield/thumb.jpg',
+    pages: ['/', '/sortiment', '/ankauf', '/destillerie', '/ueber-uns', '/kontakt'],
+  },
+  {
+    slug: 'fashion/meridian',
+    name: 'MERIDIAN',
+    branch: 'fashion',
+    type: 'website',
+    description:
+      'Elegante Uhren-Manufaktur-Website mit hellem Luxus-Design, An- & Verkauf-Funktionen und detaillierten Produktspezifikationen.',
+    thumbnail: '/templates/fashion/meridian/thumb.jpg',
+    pages: ['/', '/kollektion', '/ankauf', '/atelier', '/ueber-uns', '/kontakt'],
+  },
 ];
 
 export function getTemplatesByFilter(

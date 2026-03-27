@@ -1,0 +1,19 @@
+/* ── THORNFIELD Design Tokens ─────────────────────────────────────────────── */
+
+:root {
+  --tf-bg: #0C0A07;
+  --tf-surface: #1A1610;
+  --tf-surface-alt: #231E16;
+  --tf-amber: #C8943E;
+  --tf-amber-light: #D4A652;
+  --tf-copper: #B07030;
+  --tf-cream: #F5EDE0;
+  --tf-cream-muted: #A89880;
+  --tf-border: #2A2318;
+  --tf-border-light: #3A3228;
+}
+
+/* Tailwind v4: restore pointer cursor on interactive elements */
+button, [role="button"], select, summary {
+  cursor: pointer;
+}
