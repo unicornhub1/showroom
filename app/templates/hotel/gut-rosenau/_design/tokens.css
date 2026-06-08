@@ -1,0 +1,105 @@
+/* ── GUT ROSENAU — Design Tokens ────────────────────────────────────────────
+   Landgut · Hotel · Restaurant · Hochzeiten
+   Helles, warmes Landgut-Design: Elfenbein, Sandstein, Salbeigrün, Messing.
+   "Geschichte trifft Moderne" — Serif-Display (Cormorant) + moderne Sans (Jost).
+─────────────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* Color Palette */
+  --ro-bg: #FBF8F2;          /* warmes Elfenbein */
+  --ro-surface: #FFFFFF;
+  --ro-card: #F2EADD;        /* Sandstein hell */
+  --ro-line: #E4DACB;        /* feine Linien / Borders */
+  --ro-text: #2A2520;        /* warmes Dunkelbraun */
+  --ro-muted: #8C8175;       /* Taupe */
+  --ro-accent: #9C7B3F;      /* Antik-Messing / Ocker */
+  --ro-accent-hover: #856833;
+  --ro-sage: #5E6F52;        /* Salbei / Olive — "Moderne"/Natur */
+  --ro-sage-soft: #D7DCCE;   /* helles Salbei */
+  --ro-blush: #EADFD0;       /* warmer Sand-Akzent */
+  --ro-deep: #34302A;        /* tiefes Umbra — dunkle CTA-Sektionen */
+
+  /* Fonts (von next/font CSS-Variablen gesetzt) */
+  --ro-font-display: var(--font-cormorant), "Georgia", serif;
+  --ro-font-sans: var(--font-jost), "Helvetica Neue", sans-serif;
+}
+
+/* ── Keyframes ──────────────────────────────────────────────────────────── */
+
+@keyframes ro-fade-up {
+  0% { opacity: 0; transform: translateY(28px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ro-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes ro-gentle-pulse {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+
+@keyframes ro-line-grow {
+  0% { transform: scaleX(0); }
+  100% { transform: scaleX(1); }
+}
+
+/* ── Utilities ──────────────────────────────────────────────────────────── */
+
+.ro-float { animation: ro-float 6s ease-in-out infinite; }
+
+.ro-line-grow {
+  animation: ro-line-grow 1.1s ease-out both;
+  transform-origin: left center;
+}
+
+/* Eyebrow / kleines Label */
+.ro-eyebrow {
+  font-family: var(--ro-font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.ro-eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 26px;
+  height: 1px;
+  margin-right: 12px;
+  background: currentColor;
+  vertical-align: middle;
+  opacity: 0.5;
+}
+
+/* Hero Ken-Burns — langsamer, subtiler Zoom */
+@keyframes ro-kenburns {
+  from { transform: scale(1); }
+  to { transform: scale(1.07); }
+}
+.ro-kenburns img {
+  animation: ro-kenburns 22s ease-out both;
+}
+
+/* Gold-Akzentlinie */
+.ro-rule {
+  width: 56px;
+  height: 1.5px;
+  background: var(--ro-accent);
+}
+
+/* ── Tailwind v4 entfernt cursor:pointer auf Buttons ──────────────────────── */
+button,
+[role="button"],
+select,
+summary {
+  cursor: pointer;
+}
+
+/* ── Scrollbar ──────────────────────────────────────────────────────────── */
+.ro-scroll::-webkit-scrollbar { width: 6px; height: 6px; }
+.ro-scroll::-webkit-scrollbar-track { background: transparent; }
+.ro-scroll::-webkit-scrollbar-thumb { background: var(--ro-blush); border-radius: 3px; }

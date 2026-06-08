@@ -200,6 +200,36 @@ export const TEMPLATES: Template[] = [
     thumbnail: '/templates/fashion/meridian/thumb.jpg',
     pages: ['/', '/kollektion', '/ankauf', '/atelier', '/ueber-uns', '/kontakt'],
   },
+  {
+    slug: 'hotel/gut-rosenau',
+    name: 'GUT ROSENAU',
+    branch: 'hotel',
+    type: 'website',
+    description:
+      'Historisches Landgut, modern interpretiert: Boutique-Hotel, Farm-to-table-Restaurant und Hochzeiten in Scheune & Rosengarten. Hell, „Geschichte trifft Moderne".',
+    thumbnail: '/templates/hotel/gut-rosenau/thumb.jpg',
+    pages: ['/', '/hotel', '/restaurant', '/hochzeiten', '/galerie', '/kontakt'],
+  },
+  {
+    slug: 'hotel/villa-aurelia',
+    name: 'VILLA AURELIA',
+    branch: 'hotel',
+    type: 'website',
+    description:
+      'Gründerzeit-Stadtvilla mit Hotel, Fine-Dining-Restaurant und festlichen Event- & Hochzeitssälen. Helles, klassisch-modernes Design in Flaschengrün & Gold.',
+    thumbnail: '/templates/hotel/villa-aurelia/thumb.jpg',
+    pages: ['/', '/hotel', '/restaurant', '/hochzeiten', '/galerie', '/kontakt'],
+  },
+  {
+    slug: 'hotel/speicher-no7',
+    name: 'SPEICHER No.7',
+    branch: 'hotel',
+    type: 'website',
+    description:
+      'Historischer Hafen-Speicher, loftig-modern: Design-Hotel, Open-Kitchen-Restaurant und Eventhalle für Lofthochzeiten. Hell und luftig mit Backstein-Akzenten.',
+    thumbnail: '/templates/hotel/speicher-no7/thumb.jpg',
+    pages: ['/', '/hotel', '/restaurant', '/hochzeiten', '/galerie', '/kontakt'],
+  },
 ];
 
 export function getTemplatesByFilter(
