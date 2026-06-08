@@ -1,0 +1,75 @@
+/* ── SPEICHER No.7 — Design Tokens ──────────────────────────────────────────
+   Speicher · Hotel · Restaurant · Events
+   Zeitgenössischer, minimalistischer Loft-Look im Hafen-Speicher von 1911.
+   Architektur-Portfolio-Anmutung: Kalkweiß/Anthrazit, scharfe Kanten, Haarlinien,
+   Terrakotta nur sparsam. Headlines: Space Grotesk · Labels/Indizes: Space Mono.
+─────────────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* Color Palette — reduziert, Kalkweiß/Anthrazit dominant */
+  --sp-bg: #F4F2ED;          /* Kalkweiß */
+  --sp-surface: #FFFFFF;
+  --sp-card: #ECE9E2;        /* heller Putz */
+  --sp-line: #D8D3C9;        /* feine Haarlinien / Borders */
+  --sp-text: #1B1A18;        /* tiefes Anthrazit */
+  --sp-muted: #7C786F;       /* warmes Grau */
+  --sp-accent: #B5603A;      /* Backstein-Terrakotta — nur sparsam */
+  --sp-accent-hover: #9A4F2F;
+  --sp-soft: #DCD6CC;        /* heller Sand-Akzent */
+  --sp-deep: #1B1A18;        /* tiefes Anthrazit — dunkle Sektionen */
+
+  /* Fonts (von next/font CSS-Variablen gesetzt) */
+  --sp-font-display: var(--font-space-grotesk), "Helvetica Neue", sans-serif;
+  --sp-font-mono: var(--font-space-mono), "Courier New", monospace;
+  --sp-font-sans: var(--font-manrope), "Helvetica Neue", sans-serif;
+}
+
+/* ── Keyframes ──────────────────────────────────────────────────────────── */
+
+@keyframes sp-fade-up {
+  0% { opacity: 0; transform: translateY(24px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Mono-Eyebrow / Index-Label ───────────────────────────────────────────
+   Monospace, uppercase, klein, weiter Tracking. KEINE Haarlinie davor
+   (passt nicht zum Mono-Look — bewusst entfernt). */
+.sp-eyebrow {
+  font-family: var(--sp-font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 11px;
+  font-weight: 400;
+}
+
+/* Mono-Index (2-stellig, z.B. "01") — für linksbündige Sektionsköpfe */
+.sp-index {
+  font-family: var(--sp-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* Dünne, architektonische Trennlinie */
+.sp-hairline {
+  height: 1px;
+  width: 100%;
+  background: var(--sp-line);
+}
+
+/* Footer-Link-Hover (Server-Component-tauglich, kein JS-Handler) */
+.sp-foot-link:hover { color: var(--sp-accent); }
+.sp-foot-legal:hover { color: var(--sp-text); }
+
+/* ── Tailwind v4 entfernt cursor:pointer auf Buttons ──────────────────────── */
+button,
+[role="button"],
+select,
+summary {
+  cursor: pointer;
+}
+
+/* ── Scrollbar ──────────────────────────────────────────────────────────── */
+.sp-scroll::-webkit-scrollbar { width: 6px; height: 6px; }
+.sp-scroll::-webkit-scrollbar-track { background: transparent; }
+.sp-scroll::-webkit-scrollbar-thumb { background: var(--sp-soft); border-radius: 0; }
