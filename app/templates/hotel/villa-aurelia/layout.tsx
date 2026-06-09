@@ -23,7 +23,7 @@ const mulish = Mulish({
 export const metadata: Metadata = {
   title: "VILLA AURELIA | Stadtvilla · Hotel · Restaurant · Events",
   description:
-    "Eine Gründerzeit-Stadtvilla von 1897, behutsam modernisiert: Design-Boutique-Hotel, Fine-Dining-Restaurant und festliche Event- und Hochzeitssäle. Geschichte trifft Moderne.",
+    "Eine Gründerzeit-Stadtvilla von 1897, behutsam modernisiert: Design-Boutique-Hotel, Fine-Dining-Restaurant und festliche Event- und Hochzeitssäle.",
 };
 
 export default function VillaAureliaLayout({

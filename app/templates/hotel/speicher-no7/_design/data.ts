@@ -1,6 +1,6 @@
 /* ── SPEICHER No.7 — Mock-Daten ─────────────────────────────────────────────
    Fiktiver Hafen-Speicher von 1911 mit Loft-Hotel, Open-Kitchen-Restaurant
-   und Eventhalle für Lofthochzeiten.
+   und Bar mit Hafenblick.
    Alle Inhalte sind Platzhalter (Designvorlage der Unicorn Factory).
 ─────────────────────────────────────────────────────────────────────────── */
 
@@ -9,8 +9,8 @@ const IMG = `${BASE}/images`;
 
 export const BRAND = {
   name: "SPEICHER No.7",
-  tagline: "Speicher · Hotel · Restaurant · Events",
-  claim: "Geschichte trifft Moderne",
+  tagline: "Speicher · Hotel · Bar · Restaurant",
+  claim: "Am Hafen, seit 1911",
   founded: 1911,
 };
 
@@ -19,7 +19,7 @@ export const BRAND = {
 export const NAV_ITEMS = [
   { label: "Hotel", href: `${BASE}/hotel` },
   { label: "Restaurant", href: `${BASE}/restaurant` },
-  { label: "Hochzeiten", href: `${BASE}/hochzeiten` },
+  { label: "Bar", href: `${BASE}/bar` },
   { label: "Galerie", href: `${BASE}/galerie` },
   { label: "Kontakt", href: `${BASE}/kontakt` },
 ];
@@ -42,7 +42,7 @@ export type Stat = { value: string; label: string };
 export const stats: Stat[] = [
   { value: "1911", label: "Erbaut" },
   { value: "32", label: "Lofts & Studios" },
-  { value: "150", label: "Eventgäste" },
+  { value: "70", label: "Restaurant-Plätze" },
   { value: "4,9", label: "Gästebewertung" },
 ];
 
@@ -179,9 +179,9 @@ export const menu: MenuCategory[] = [
   },
 ];
 
-/* ── Event- & Hochzeitslocations ────────────────────────────────────────── */
+/* ── Bar- & Lounge-Bereiche ─────────────────────────────────────────────── */
 
-export type EventSpace = {
+export type BarSpace = {
   id: string;
   name: string;
   description: string;
@@ -191,14 +191,14 @@ export type EventSpace = {
   gradient: string;
 };
 
-export const eventSpaces: EventSpace[] = [
+export const barSpaces: BarSpace[] = [
   {
-    id: "halle",
-    name: "Die Halle",
+    id: "hafenbar",
+    name: "Die Hafenbar",
     description:
-      "Das luftige Herzstück des Speichers: gusseiserne Stützen, raumhohe Industriefenster und ein heller Loft-Charakter. Der große Rahmen für Lofthochzeit, Dinner und Party.",
-    capacity: "bis 150 Gäste",
-    best: "Lofthochzeit & Party",
+      "Das Herzstück unter den gusseisernen Stützen: lange Tresenkante aus dunklem Holz, ein offenes Regal voller Spirituosen und Wein. Hier mixen wir Cocktails, schenken Naturweine aus und lassen den Abend langsam beginnen.",
+    capacity: "bis 60 Gäste",
+    best: "Cocktailbar",
     image: `${IMG}/wedding/halle.jpg`,
     gradient: "linear-gradient(135deg, #ECE8E1 0%, #B5603A 60%, #2A2826 100%)",
   },
@@ -206,9 +206,9 @@ export const eventSpaces: EventSpace[] = [
     id: "dachterrasse",
     name: "Die Dachterrasse",
     description:
-      "Sektempfang über den Dächern der Hafenstadt: weite Aussicht, Abendsonne und urbaner Charme. Ein luftiger Ort für den Empfang und das erste Anstoßen.",
-    capacity: "bis 80 Gäste",
-    best: "Empfang über den Dächern",
+      "Ein Drink über den Dächern der Hafenstadt: weite Aussicht, Abendsonne und urbaner Charme. Der luftige Ort für den Sundowner, einen Aperitivo oder das letzte Glas Wein bei warmem Licht.",
+    capacity: "bis 40 Gäste",
+    best: "Sonnenterrasse",
     image: `${IMG}/wedding/dachterrasse.jpg`,
     gradient: "linear-gradient(135deg, #DCD6CC 0%, #C08A52 70%, #F7F5F1 100%)",
   },
@@ -216,64 +216,51 @@ export const eventSpaces: EventSpace[] = [
     id: "kaikante",
     name: "Die Kaikante",
     description:
-      "Freie Trauung direkt am Wasser, mit dem Hafenbecken als Kulisse. Intim, hell und ganz nah am Element — der stimmungsvolle Ort für das Ja-Wort.",
-    capacity: "bis 60 Gäste",
-    best: "Trauung am Wasser",
+      "Ein Drink direkt am Wasser, mit dem Hafenbecken als Kulisse. Ein paar hohe Tische an der Kante, das Glucksen des Wassers und ein Glas in der Hand — intim, hell und ganz nah am Element.",
+    capacity: "bis 25 Gäste",
+    best: "Am Wasser",
     image: `${IMG}/wedding/kai.jpg`,
     gradient: "linear-gradient(135deg, #2A2826 0%, #B5603A 50%, #ECE8E1 100%)",
   },
 ];
 
-export type WeddingPackage = {
+export type SignatureDrink = {
   id: string;
   name: string;
-  priceLabel: string;
-  note: string;
-  includes: string[];
-  featured?: boolean;
+  description: string;
+  price: number;
 };
 
-export const weddingPackages: WeddingPackage[] = [
+export const signatureDrinks: SignatureDrink[] = [
   {
-    id: "intim",
-    name: "Trauung Intim",
-    priceLabel: "ab 1.900 €",
-    note: "bis 20 Personen",
-    includes: [
-      "Freie Trauung an der Kaikante",
-      "Sektempfang mit Canapés",
-      "3-Gang-Menü aus der Open Kitchen",
-      "Florale Tischgestaltung",
-      "Ein Loft am Wasser inklusive",
-    ],
+    id: "hafen-spritz",
+    name: "Hafen Spritz",
+    description: "Aperitivo, Holunder, trockener Sekt, Grapefruit & Rosmarin",
+    price: 11,
   },
   {
-    id: "lofthochzeit",
-    name: "Die Lofthochzeit",
-    priceLabel: "ab 95 € / Person",
-    note: "beliebtestes Paket",
-    includes: [
-      "Trauung an der Kaikante",
-      "Sektempfang auf der Dachterrasse",
-      "4-Gang-Hochzeitsmenü in der Halle",
-      "Industrie-Loft mit Lichtinstallation",
-      "Persönliche Hochzeitsplanung",
-      "Mitternachtssnack",
-    ],
-    featured: true,
+    id: "backstein-negroni",
+    name: "Backstein Negroni",
+    description: "Fassgereifter Gin, roter Wermut, Bitterlikör, Orangenzeste",
+    price: 13,
   },
   {
-    id: "wochenende",
-    name: "Speicher-Wochenende",
-    priceLabel: "auf Anfrage",
-    note: "exklusive Anmietung",
-    includes: [
-      "Exklusive Anmietung des gesamten Speichers",
-      "Anreise-Dinner für die engsten Gäste",
-      "Trauung, Feier & Brunch am Folgetag",
-      "Alle 32 Lofts & Studios für Ihre Gäste",
-      "Persönliche Eventleitung über das ganze Wochenende",
-    ],
+    id: "kaikante-sour",
+    name: "Kaikante Sour",
+    description: "Roggen-Whisky, Zitrone, Ahorn, ein Hauch Räucheraroma",
+    price: 13,
+  },
+  {
+    id: "speicher-gimlet",
+    name: "Speicher Gimlet",
+    description: "Wacholder-Gin, hausgemachtes Limetten-Cordial, Gurke",
+    price: 12,
+  },
+  {
+    id: "anno-1911",
+    name: "Anno 1911",
+    description: "Alkoholfreier Aperitif, Verjus, Tonic & Thymian",
+    price: 9,
   },
 ];
 
@@ -282,7 +269,7 @@ export const weddingPackages: WeddingPackage[] = [
 export type GalleryItem = {
   id: string;
   title: string;
-  category: "Hotel" | "Restaurant" | "Hochzeit" | "Speicher";
+  category: "Hotel" | "Restaurant" | "Bar" | "Speicher";
   image: string;
   gradient: string;
   aspect: "portrait" | "landscape" | "square";
@@ -292,7 +279,7 @@ export const galleryItems: GalleryItem[] = [
   { id: "g1", title: "Die Halle im Morgenlicht", category: "Speicher", image: `${IMG}/gallery/g1.jpg`, gradient: "linear-gradient(135deg, #DCD6CC 0%, #C08A52 100%)", aspect: "portrait" },
   { id: "g2", title: "Hafenbecken bei Sonnenuntergang", category: "Speicher", image: `${IMG}/gallery/g2.jpg`, gradient: "linear-gradient(135deg, #B5603A 0%, #ECE8E1 100%)", aspect: "landscape" },
   { id: "g3", title: "Gedeckte Tafel in der Halle", category: "Restaurant", image: `${IMG}/gallery/g3.jpg`, gradient: "linear-gradient(135deg, #2A2826 0%, #B5603A 100%)", aspect: "portrait" },
-  { id: "g4", title: "Brautstrauß am Wasser", category: "Hochzeit", image: `${IMG}/gallery/g4.jpg`, gradient: "linear-gradient(135deg, #ECE8E1 0%, #DCD6CC 100%)", aspect: "square" },
+  { id: "g4", title: "Drinks an der Kaikante", category: "Bar", image: `${IMG}/gallery/g4.jpg`, gradient: "linear-gradient(135deg, #ECE8E1 0%, #DCD6CC 100%)", aspect: "square" },
   { id: "g5", title: "Backstein & Tageslicht", category: "Speicher", image: `${IMG}/gallery/g5.jpg`, gradient: "linear-gradient(135deg, #DCD6CC 0%, #F7F5F1 100%)", aspect: "landscape" },
   { id: "g6", title: "Blick auf die Kaikante", category: "Hotel", image: `${IMG}/gallery/g6.jpg`, gradient: "linear-gradient(135deg, #C08A52 0%, #ECE8E1 100%)", aspect: "portrait" },
 ];
@@ -311,9 +298,9 @@ export const testimonials: Testimonial[] = [
   {
     id: "t1",
     quote:
-      "Unsere Hochzeit in der Halle war genau das, was wir uns erträumt hatten: hell, urban, am Wasser. Der alte Speicher hat eine Seele — und das Team liest jeden Wunsch von den Augen ab.",
-    author: "Marie & Tobias",
-    context: "Hochzeit · September 2025",
+      "Ein Drink an der Kaikante, während die Sonne über dem Hafenbecken untergeht — die Bar im Speicher ist unser neuer Lieblingsort. Die Cocktails sind durchdacht, das Licht warm, der Backstein erzählt Geschichten.",
+    author: "Lena & Jonas",
+    context: "Barbesuch · Oktober 2025",
     rating: 5,
   },
   {
@@ -343,6 +330,6 @@ export const CONTACT = {
   hours: [
     { label: "Rezeption", value: "Täglich 7:00 – 22:00 Uhr" },
     { label: "Restaurant", value: "Mi – So, 18:00 – 22:00 Uhr" },
-    { label: "Eventbüro", value: "Nach Vereinbarung" },
+    { label: "Bar", value: "Mi – Sa, 17:00 – 1:00 Uhr" },
   ],
 };

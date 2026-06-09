@@ -9,7 +9,7 @@ const IMG = `${BASE}/images`;
 export const BRAND = {
   name: "VILLA AURELIA",
   tagline: "Stadtvilla · Hotel · Restaurant · Events",
-  claim: "Geschichte trifft Moderne",
+  claim: "Eleganz mit Tradition",
   founded: 1897,
 };
 

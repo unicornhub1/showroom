@@ -36,10 +36,10 @@ const PILLARS = [
   },
   {
     index: "03",
-    title: "Hochzeiten",
-    text: "Ihr schönster Tag in Halle, Dachterrasse und an der Kaikante — bis 150 Gäste.",
-    href: `${BASE}/hochzeiten`,
-    image: `${IMG}/wedding/halle.jpg`,
+    title: "Die Bar",
+    text: "Cocktails, Naturweine und ein Drink mit Aussicht — am Tresen, auf der Dachterrasse und an der Kaikante.",
+    href: `${BASE}/bar`,
+    image: `${IMG}/wedding/dachterrasse.jpg`,
     gradient: "linear-gradient(135deg, #B5603A 0%, #ECE8E1 100%)",
   },
 ];
@@ -125,7 +125,7 @@ export default function SpeicherNo7Home() {
               transition: "opacity 1s ease .3s, transform 1s ease .3s",
             }}
           >
-            geschichte trifft<br />moderne<span style={{ color: "var(--sp-accent)" }}>.</span>
+            leben am<br />hafen<span style={{ color: "var(--sp-accent)" }}>.</span>
           </h1>
 
           <p
@@ -139,8 +139,8 @@ export default function SpeicherNo7Home() {
               transition: "opacity .8s ease .55s, transform .8s ease .55s",
             }}
           >
-            Ein Hafen-Speicher von 1911, loftig in unsere Zeit geholt. Wohnen, speisen und feiern,
-            wo Backstein, Licht und Wasser zusammenkommen.
+            Ein Hafen-Speicher von 1911, loftig in unsere Zeit geholt. Wohnen, essen und ein Drink
+            mit Aussicht, wo Backstein, Licht und Wasser zusammenkommen.
           </p>
 
           <div
@@ -365,30 +365,31 @@ export default function SpeicherNo7Home() {
         </div>
       </section>
 
-      {/* ════════════════════════ HOCHZEITS-FOKUS ════════════════════════ */}
+      {/* ════════════════════════ BAR-FOKUS ════════════════════════ */}
       <section className="relative overflow-hidden">
-        <Media src={`${IMG}/wedding/dinner.jpg`} alt="Hochzeit im SPEICHER No.7" gradient="linear-gradient(135deg, #B5603A 0%, #2A2826 100%)" className="absolute inset-0 h-full w-full" sizes="100vw" />
+        <Media src={`${IMG}/wedding/dachterrasse.jpg`} alt="Die Bar im SPEICHER No.7" gradient="linear-gradient(135deg, #B5603A 0%, #2A2826 100%)" className="absolute inset-0 h-full w-full" sizes="100vw" />
         <div className="absolute inset-0" style={{ backgroundColor: "rgba(27,26,24,0.5)" }} />
         <div className="relative z-10 mx-auto max-w-[1320px] px-6 py-32 lg:px-10 lg:py-48">
           <div className="max-w-2xl">
             <FadeIn>
-              <span className="sp-eyebrow" style={{ color: "rgba(247,245,241,0.78)" }}>05 &mdash; Hochzeiten &amp; Events</span>
+              <span className="sp-eyebrow" style={{ color: "rgba(247,245,241,0.78)" }}>05 &mdash; Die Bar</span>
             </FadeIn>
             <FadeIn delay={0.1}>
               <h2 className="mt-6 text-4xl font-medium leading-[1.02] tracking-tight sm:text-6xl" style={{ fontFamily: "var(--sp-font-display)", color: "#F7F5F1" }}>
-                Der schönste Tag, am Wasser
+                Drinks mit Aussicht
               </h2>
             </FadeIn>
             <FadeIn delay={0.2}>
               <p className="mt-6 max-w-lg text-base leading-relaxed sm:text-lg" style={{ fontFamily: "var(--sp-font-sans)", color: "rgba(247,245,241,0.85)", fontWeight: 300 }}>
-                Freie Trauung an der Kaikante, Empfang auf der Dachterrasse, Feiern bis in die Nacht in
-                der Halle — für bis zu 150 Gäste, exklusiv nur für Sie.
+                Signature-Cocktails am Tresen unter den Gussstützen, ein Glas Naturwein auf der
+                Dachterrasse, ein Sundowner direkt an der Kaikante — die Hafenbar öffnet, wenn das
+                Licht weich wird.
               </p>
             </FadeIn>
             <FadeIn delay={0.3}>
               <div className="mt-10">
-                <ArrowLink href={`${BASE}/hochzeiten`} light>
-                  Hochzeit planen
+                <ArrowLink href={`${BASE}/bar`} light>
+                  Zur Bar
                 </ArrowLink>
               </div>
             </FadeIn>
@@ -481,7 +482,7 @@ export default function SpeicherNo7Home() {
                     Wir freuen uns auf Sie
                   </h2>
                   <p className="mt-6 max-w-lg text-base leading-relaxed" style={{ fontFamily: "var(--sp-font-sans)", color: "var(--sp-muted)", fontWeight: 300 }}>
-                    Ob Übernachtung, Tischreservierung oder Hochzeitsanfrage — schreiben Sie uns, wir
+                    Ob Übernachtung, Tischreservierung oder ein Platz an der Bar — schreiben Sie uns, wir
                     melden uns persönlich.
                   </p>
                 </div>

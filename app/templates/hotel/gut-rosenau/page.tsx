@@ -109,7 +109,7 @@ export default function GutRosenauHome() {
                 textShadow: "0 2px 30px rgba(0,0,0,0.25)",
               }}
             >
-              Geschichte trifft <span style={{ fontStyle: "italic", color: "#EADFD0" }}>Moderne</span>
+              Ein Landgut für <span style={{ fontStyle: "italic", color: "#EADFD0" }}>besondere Tage</span>
             </h1>
 
             <p

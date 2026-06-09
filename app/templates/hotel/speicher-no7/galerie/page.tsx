@@ -9,30 +9,30 @@ import { BASE } from "../_design/data";
 const IMG = `${BASE}/images`;
 const G = "linear-gradient(135deg, #ECE8E1 0%, #B5603A 100%)";
 
-type Cat = "Hotel" | "Restaurant" | "Hochzeit" | "Speicher";
+type Cat = "Hotel" | "Restaurant" | "Bar" | "Speicher";
 type Photo = { src: string; title: string; cat: Cat; aspect: "portrait" | "landscape" | "square" };
 
 const PHOTOS: Photo[] = [
   { src: `${IMG}/gallery/g1.jpg`, title: "Die Halle im Morgenlicht", cat: "Speicher", aspect: "portrait" },
   { src: `${IMG}/rooms/loft-wasser.jpg`, title: "Loft am Wasser", cat: "Hotel", aspect: "landscape" },
-  { src: `${IMG}/wedding/kai.jpg`, title: "Freie Trauung an der Kaikante", cat: "Hochzeit", aspect: "landscape" },
+  { src: `${IMG}/wedding/kai.jpg`, title: "Ein Drink an der Kaikante", cat: "Bar", aspect: "landscape" },
   { src: `${IMG}/restaurant/dish-1.jpg`, title: "Saibling vom Kai", cat: "Restaurant", aspect: "portrait" },
   { src: `${IMG}/gallery/g2.jpg`, title: "Hafenbecken bei Sonnenuntergang", cat: "Speicher", aspect: "landscape" },
-  { src: `${IMG}/wedding/dinner.jpg`, title: "Hochzeitsdinner", cat: "Hochzeit", aspect: "landscape" },
+  { src: `${IMG}/wedding/dinner.jpg`, title: "Aperitivo am Abend", cat: "Bar", aspect: "landscape" },
   { src: `${IMG}/rooms/backstein.jpg`, title: "Backstein-Studio", cat: "Hotel", aspect: "landscape" },
   { src: `${IMG}/restaurant/interior.jpg`, title: "In der Open Kitchen", cat: "Restaurant", aspect: "landscape" },
-  { src: `${IMG}/gallery/g4.jpg`, title: "Brautstrauß am Wasser", cat: "Hochzeit", aspect: "square" },
+  { src: `${IMG}/gallery/g4.jpg`, title: "Drinks an der Kaikante", cat: "Bar", aspect: "square" },
   { src: `${IMG}/gallery/g3.jpg`, title: "Gedeckte Tafel in der Halle", cat: "Restaurant", aspect: "portrait" },
-  { src: `${IMG}/wedding/halle.jpg`, title: "Feier in der Halle", cat: "Hochzeit", aspect: "landscape" },
+  { src: `${IMG}/wedding/halle.jpg`, title: "Die Bar unter den Gussstützen", cat: "Bar", aspect: "landscape" },
   { src: `${IMG}/rooms/penthouse.jpg`, title: "Penthouse-Speicher", cat: "Hotel", aspect: "landscape" },
   { src: `${IMG}/gallery/g5.jpg`, title: "Backstein & Tageslicht", cat: "Speicher", aspect: "landscape" },
-  { src: `${IMG}/wedding/dachterrasse.jpg`, title: "Empfang auf der Dachterrasse", cat: "Hochzeit", aspect: "landscape" },
+  { src: `${IMG}/wedding/dachterrasse.jpg`, title: "Sundowner auf der Dachterrasse", cat: "Bar", aspect: "landscape" },
   { src: `${IMG}/rooms/atelier-loft.jpg`, title: "Atelier-Loft", cat: "Hotel", aspect: "portrait" },
   { src: `${IMG}/restaurant/dish-3.jpg`, title: "Birne, Honig & Walnuss", cat: "Restaurant", aspect: "portrait" },
   { src: `${IMG}/gallery/g6.jpg`, title: "Blick auf die Kaikante", cat: "Speicher", aspect: "portrait" },
 ];
 
-const FILTERS: ("Alle" | Cat)[] = ["Alle", "Hotel", "Restaurant", "Hochzeit", "Speicher"];
+const FILTERS: ("Alle" | Cat)[] = ["Alle", "Hotel", "Restaurant", "Bar", "Speicher"];
 
 function aspectClass(a: Photo["aspect"]) {
   return a === "portrait" ? "aspect-[3/4]" : a === "square" ? "aspect-square" : "aspect-[4/3]";
@@ -49,7 +49,7 @@ export default function GaleriePage() {
         gradient={G}
         eyebrow="Impressionen"
         title="Galerie"
-        subtitle="Ein Streifzug durch Speicher, Lofts, Open Kitchen und unvergessliche Feste am Wasser."
+        subtitle="Ein Streifzug durch Speicher, Lofts, Open Kitchen und ein paar Drinks am Wasser."
       />
 
       <section className="py-20 lg:py-28" style={{ backgroundColor: "var(--sp-bg)" }}>

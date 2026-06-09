@@ -111,9 +111,9 @@ export default function VillaAureliaHome() {
               textShadow: "0 2px 36px rgba(0,0,0,0.3)",
             }}
           >
-            Geschichte trifft
+            Eine Villa für
             <br />
-            <span style={{ fontStyle: "italic", color: "#DDE3DC" }}>Moderne</span>
+            <span style={{ fontStyle: "italic", color: "#DDE3DC" }}>große Momente</span>
           </h1>
 
           <div

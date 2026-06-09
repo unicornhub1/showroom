@@ -9,7 +9,7 @@ const IMG = `${BASE}/images`;
 export const BRAND = {
   name: "GUT ROSENAU",
   tagline: "Landgut · Hotel · Restaurant · Hochzeiten",
-  claim: "Geschichte trifft Moderne",
+  claim: "Ein Gut zum Ankommen",
   founded: 1788,
 };
 

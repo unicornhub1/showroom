@@ -29,9 +29,9 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "SPEICHER No.7 | Speicher · Hotel · Restaurant · Events",
+  title: "SPEICHER No.7 | Speicher · Hotel · Bar · Restaurant",
   description:
-    "Ein historischer Hafen-Speicher von 1911, loftig-modern umgebaut: Design-Hotel, Open-Kitchen-Restaurant und Eventhalle für Lofthochzeiten am Wasser. Geschichte trifft Moderne.",
+    "Ein historischer Hafen-Speicher von 1911, loftig-modern umgebaut: Design-Hotel, Open-Kitchen-Restaurant und eine Bar mit Hafenblick. Hell und luftig mit Backstein-Akzenten am Wasser.",
 };
 
 export default function SpeicherNo7Layout({

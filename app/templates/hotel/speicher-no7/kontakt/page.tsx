@@ -24,7 +24,7 @@ export default function KontaktPage() {
         gradient="linear-gradient(135deg, #B5603A 0%, #2A2826 100%)"
         eyebrow="Kontakt & Anfrage"
         title="Schreiben Sie uns"
-        subtitle="Ob Übernachtung, Tisch oder Hochzeit — wir antworten persönlich."
+        subtitle="Ob Übernachtung, Tisch oder ein Platz an der Bar — wir antworten persönlich."
       />
 
       <section className="py-20 lg:py-32" style={{ backgroundColor: "var(--sp-bg)" }}>
@@ -111,9 +111,8 @@ export default function KontaktPage() {
                       <select required defaultValue="" className="mt-2 w-full py-3 text-[15px] outline-none" style={inputStyle}>
                         <option value="" disabled>Bitte wählen</option>
                         <option>Übernachtung / Loft</option>
-                        <option>Tischreservierung</option>
-                        <option>Hochzeit</option>
-                        <option>Firmenevent / Feier</option>
+                        <option>Tisch (Restaurant)</option>
+                        <option>Bar</option>
                         <option>Sonstiges</option>
                       </select>
                     </div>

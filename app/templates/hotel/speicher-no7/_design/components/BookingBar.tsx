@@ -9,7 +9,7 @@ import { useState, type FormEvent } from "react";
    Designvorlage — kein echtes Backend.
 ─────────────────────────────────────────────────────────────────────────── */
 
-const ANLIEGEN = ["Übernachtung", "Tisch", "Hochzeit / Event"] as const;
+const ANLIEGEN = ["Übernachtung", "Tisch (Restaurant)", "Bar"] as const;
 
 /* Wiederverwendbares Mono-Label über jeder Zelle */
 function CellLabel({ children }: { children: React.ReactNode }) {

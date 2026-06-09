@@ -226,9 +226,9 @@ export const TEMPLATES: Template[] = [
     branch: 'hotel',
     type: 'website',
     description:
-      'Historischer Hafen-Speicher, loftig-modern: Design-Hotel, Open-Kitchen-Restaurant und Eventhalle für Lofthochzeiten. Hell und luftig mit Backstein-Akzenten.',
+      'Historischer Hafen-Speicher, loftig-modern: Design-Hotel, Open-Kitchen-Restaurant und eine Bar mit Hafenblick. Hell und luftig mit Backstein-Akzenten.',
     thumbnail: '/templates/hotel/speicher-no7/thumb.jpg',
-    pages: ['/', '/hotel', '/restaurant', '/hochzeiten', '/galerie', '/kontakt'],
+    pages: ['/', '/hotel', '/restaurant', '/bar', '/galerie', '/kontakt'],
   },
 ];
 

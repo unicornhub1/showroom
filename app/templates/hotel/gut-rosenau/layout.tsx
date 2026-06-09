@@ -23,7 +23,7 @@ const jost = Jost({
 export const metadata: Metadata = {
   title: "GUT ROSENAU | Landgut · Hotel · Restaurant · Hochzeiten",
   description:
-    "Historisches Landgut, modern interpretiert: Boutique-Hotel, Farm-to-table-Restaurant und stilvolle Hochzeiten in Scheune und Rosengarten. Geschichte trifft Moderne.",
+    "Historisches Landgut, modern interpretiert: Boutique-Hotel, Farm-to-table-Restaurant und stilvolle Hochzeiten in Scheune und Rosengarten.",
 };
 
 export default function GutRosenauLayout({
