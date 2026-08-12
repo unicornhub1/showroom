@@ -180,7 +180,7 @@ export function Configurator() {
                               alt={obj.name}
                               fill
                               className="object-cover transition-transform duration-500 group-hover:scale-105"
-                              style={{ opacity: active ? 0.85 : 0.45 }}
+                              style={{ opacity: active ? 0.9 : 0.62 }}
                               sizes="(max-width: 640px) 100vw, 320px"
                             />
                             <div
@@ -188,7 +188,7 @@ export function Configurator() {
                               style={{
                                 background: active
                                   ? 'linear-gradient(to top, var(--vg-surface) 12%, transparent 90%)'
-                                  : 'linear-gradient(to top, var(--vg-surface) 20%, rgba(10,13,18,0.55) 100%)',
+                                  : 'linear-gradient(to top, var(--vg-surface) 18%, rgba(10,13,18,0.35) 100%)',
                               }}
                             />
                             {active && (

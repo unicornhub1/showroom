@@ -14,7 +14,7 @@ const ASSURANCES = [
  */
 export function ConfiguratorTeaser() {
   return (
-    <section className="relative overflow-hidden">
+    <section className="vg-dark relative overflow-hidden">
       {/* Hintergrundbild */}
       <div className="absolute inset-0">
         <Image

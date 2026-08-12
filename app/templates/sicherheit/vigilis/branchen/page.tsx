@@ -78,7 +78,7 @@ export default function BranchenPage() {
                       className="absolute inset-0"
                       style={{
                         background:
-                          'linear-gradient(to top, rgba(10,13,18,0.7), transparent 55%)',
+                          'linear-gradient(to top, rgba(13,18,25,0.22), transparent 55%)',
                       }}
                     />
                   </div>

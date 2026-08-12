@@ -1,45 +1,85 @@
 /* ── VIGILIS Design Tokens ────────────────────────────────────────────────────
    Leitstand-Ästhetik: Graphit, Stahl, präzises Signalrot.
-   Dunkle Basis mit hellen Sektionen als Rhythmus.
+
+   Helle Basis als Grundton. Einzelne Bereiche — Konfigurator, CTA, Footer —
+   werden über die Klasse .vg-dark zu dunklen Inseln: die Klasse definiert
+   dieselben Tokens neu, sodass alle darin liegenden Komponenten ohne eigene
+   Anpassung umschalten.
    ─────────────────────────────────────────────────────────────────────────── */
 
 :root {
-  /* Dunkle Basis */
+  /* Helle Basis */
+  --vg-bg: #F6F8FA;
+  --vg-surface: #FFFFFF;
+  --vg-surface-alt: #EFF2F6;
+  --vg-elevated: #E4E9EF;
+
+  /* Linien */
+  --vg-border: #E0E5EC;
+  --vg-border-light: #CBD3DD;
+  --vg-border-strong: #A9B4C2;
+
+  /* Signal */
+  --vg-signal: #BF3A33;
+  --vg-signal-light: #D34E46;
+  --vg-signal-dark: #9A2C26;
+  --vg-signal-glow: rgba(191, 58, 51, 0.07);
+
+  /* Stahl (sekundär) */
+  --vg-steel: #55697D;
+  --vg-steel-light: #75899E;
+
+  /* Text auf Hell */
+  --vg-text: #0D1219;
+  --vg-text-muted: #515D6C;
+  --vg-text-dim: #808C9B;
+
+  /* Abgesetzte helle Flächen */
+  --vg-light: #FFFFFF;
+  --vg-light-alt: #EFF2F6;
+  --vg-light-border: #E0E5EC;
+  --vg-on-light: #0D1219;
+  --vg-on-light-muted: #515D6C;
+
+  /* Status */
+  --vg-ok: #2F8467;
+  --vg-warn: #B47F26;
+}
+
+/* Dunkle Inseln — Konfigurator, CTA-Sektion, Footer */
+.vg-dark {
   --vg-bg: #0A0D12;
   --vg-surface: #111621;
   --vg-surface-alt: #171E2B;
   --vg-elevated: #1F2836;
 
-  /* Linien */
   --vg-border: #222B3A;
   --vg-border-light: #2F3B4D;
   --vg-border-strong: #435268;
 
-  /* Signal */
   --vg-signal: #C8413A;
   --vg-signal-light: #DE5A52;
   --vg-signal-dark: #A2312B;
   --vg-signal-glow: rgba(200, 65, 58, 0.14);
 
-  /* Stahl (sekundär) */
   --vg-steel: #6C8399;
   --vg-steel-light: #94A9BD;
 
-  /* Text auf Dunkel */
   --vg-text: #E9EDF3;
   --vg-text-muted: #8B98AA;
   --vg-text-dim: #5A6676;
 
-  /* Helle Sektionen */
-  --vg-light: #F2F4F7;
-  --vg-light-alt: #E6EAEF;
-  --vg-light-border: #D3DAE3;
-  --vg-on-light: #0E131B;
-  --vg-on-light-muted: #55606F;
+  --vg-light: #111621;
+  --vg-light-alt: #171E2B;
+  --vg-light-border: #222B3A;
+  --vg-on-light: #E9EDF3;
+  --vg-on-light-muted: #8B98AA;
 
-  /* Status */
   --vg-ok: #3E9E7E;
   --vg-warn: #D69B3C;
+
+  background-color: var(--vg-bg);
+  color: var(--vg-text);
 }
 
 /* Tailwind v4: restore pointer cursor on interactive elements */

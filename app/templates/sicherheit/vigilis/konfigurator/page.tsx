@@ -12,6 +12,8 @@ const ASSURANCES = [
 export default function KonfiguratorPage() {
   return (
     <main className="pt-[70px] md:pt-[106px]">
+      {/* Konfigurator, Kopf und Assistent bilden zusammen die dunkle Zone */}
+      <div className="vg-dark">
       {/* ── Kopf ──────────────────────────────────────────────────────────── */}
       <section
         className="relative overflow-hidden border-b"
@@ -201,6 +203,7 @@ export default function KonfiguratorPage() {
           </div>
         </div>
       </section>
+      </div>
 
       {/* ── FAQ ───────────────────────────────────────────────────────────── */}
       <section

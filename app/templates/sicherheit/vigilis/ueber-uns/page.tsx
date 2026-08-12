@@ -67,7 +67,7 @@ export default function UeberUnsPage() {
                 className="absolute inset-0"
                 style={{
                   background:
-                    'linear-gradient(to top, rgba(10,13,18,0.6), transparent 55%)',
+                    'linear-gradient(to top, rgba(13,18,25,0.22), transparent 55%)',
                 }}
               />
             </div>
@@ -212,7 +212,7 @@ export default function UeberUnsPage() {
       </section>
 
       {/* ── Zertifikate ───────────────────────────────────────────────────── */}
-      <section style={{ backgroundColor: 'var(--vg-surface)' }}>
+      <section style={{ backgroundColor: 'var(--vg-bg)' }}>
         <div className="mx-auto max-w-7xl px-6 py-20 md:py-24">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1.3fr] lg:gap-16">
             <div>

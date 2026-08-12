@@ -18,32 +18,20 @@ export default function VigilisHome() {
   return (
     <main className="pt-[70px] md:pt-[106px]">
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
-      <section className="relative">
-        <div className="absolute inset-0">
-          <Image
-            src="/templates/sicherheit/vigilis/images/hero/hero.jpg"
-            alt="Bürogebäude bei Nacht"
-            fill
-            priority
-            className="object-cover"
-            sizes="100vw"
-          />
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                'linear-gradient(95deg, var(--vg-bg) 12%, rgba(10,13,18,0.93) 45%, rgba(10,13,18,0.55) 100%)',
-            }}
-          />
-        </div>
-
-        <div className="relative mx-auto max-w-7xl px-6 pb-24 pt-20 md:pb-32 md:pt-28">
-          <div className="max-w-3xl">
+      <section
+        className="border-b"
+        style={{
+          backgroundColor: 'var(--vg-surface)',
+          borderColor: 'var(--vg-border)',
+        }}
+      >
+        <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-[1.05fr_1fr]">
+          <div className="flex flex-col justify-center px-6 py-20 md:py-28 lg:pr-14">
             <div
-              className="inline-flex items-center gap-2.5 px-4 py-2"
+              className="inline-flex w-fit items-center gap-2.5 px-4 py-2"
               style={{
-                border: '1px solid var(--vg-border-light)',
-                backgroundColor: 'rgba(17, 22, 33, 0.7)',
+                border: '1px solid var(--vg-border)',
+                backgroundColor: 'var(--vg-bg)',
               }}
             >
               <span
@@ -108,7 +96,7 @@ export default function VigilisHome() {
                 style={{
                   border: '1px solid var(--vg-border-strong)',
                   color: 'var(--vg-text)',
-                  backgroundColor: 'rgba(17, 22, 33, 0.6)',
+                  backgroundColor: 'transparent',
                   fontFamily: 'var(--vg-font-body)',
                   fontWeight: 500,
                 }}
@@ -118,6 +106,18 @@ export default function VigilisHome() {
               </a>
             </div>
           </div>
+
+          {/* Objektbild */}
+          <div className="relative min-h-[320px] lg:min-h-[620px]">
+            <Image
+              src="/templates/sicherheit/vigilis/images/hero/hero-tag.jpg"
+              alt="Modernes Gewerbeobjekt"
+              fill
+              priority
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 640px"
+            />
+          </div>
         </div>
 
         {/* Kennzahlen */}
@@ -125,8 +125,7 @@ export default function VigilisHome() {
           className="relative border-t"
           style={{
             borderColor: 'var(--vg-border)',
-            backgroundColor: 'rgba(10, 13, 18, 0.85)',
-            backdropFilter: 'blur(8px)',
+            backgroundColor: 'var(--vg-bg)',
           }}
         >
           <div className="mx-auto grid max-w-7xl grid-cols-2 lg:grid-cols-4">
@@ -166,7 +165,7 @@ export default function VigilisHome() {
       {/* ── Vertrauen ─────────────────────────────────────────────────────── */}
       <section
         className="border-b"
-        style={{ backgroundColor: 'var(--vg-surface)', borderColor: 'var(--vg-border)' }}
+        style={{ backgroundColor: 'var(--vg-bg)', borderColor: 'var(--vg-border)' }}
       >
         <div className="mx-auto max-w-7xl px-6 py-20 md:py-24">
           <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
@@ -305,7 +304,7 @@ export default function VigilisHome() {
 
       {/* ── Konfigurator-Bewerbung, Stelle 2 ──────────────────────────────── */}
       <section
-        className="relative overflow-hidden border-y"
+        className="vg-dark relative overflow-hidden border-y"
         style={{ backgroundColor: 'var(--vg-bg)', borderColor: 'var(--vg-border)' }}
       >
         <div className="vg-grid-bg absolute inset-0 opacity-30" />
@@ -552,7 +551,7 @@ export default function VigilisHome() {
                     className="absolute inset-0 transition-opacity"
                     style={{
                       background:
-                        'linear-gradient(to top, var(--vg-bg) 2%, rgba(10,13,18,0.32) 55%, rgba(10,13,18,0.05) 100%)',
+                        'linear-gradient(to top, rgba(13,18,25,0.30) 0%, rgba(13,18,25,0.05) 60%, transparent 100%)',
                     }}
                   />
                 </div>
@@ -646,7 +645,7 @@ export default function VigilisHome() {
       </section>
 
       {/* ── Referenzen ────────────────────────────────────────────────────── */}
-      <section style={{ backgroundColor: 'var(--vg-surface)' }}>
+      <section style={{ backgroundColor: 'var(--vg-bg)' }}>
         <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
           <div className="flex items-center gap-3">
             <span className="h-px w-10" style={{ backgroundColor: 'var(--vg-signal)' }} />

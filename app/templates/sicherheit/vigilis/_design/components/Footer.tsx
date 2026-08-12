@@ -12,7 +12,7 @@ import {
 export function Footer() {
   return (
     <footer
-      className="border-t"
+      className="vg-dark border-t"
       style={{
         backgroundColor: 'var(--vg-bg)',
         borderColor: 'var(--vg-border)',

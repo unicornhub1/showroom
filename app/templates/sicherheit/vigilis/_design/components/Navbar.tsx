@@ -60,7 +60,7 @@ export function Navbar() {
       <nav
         className="border-b transition-colors duration-300"
         style={{
-          backgroundColor: scrolled ? 'rgba(10, 13, 18, 0.94)' : 'var(--vg-bg)',
+          backgroundColor: scrolled ? 'rgba(246, 248, 250, 0.92)' : 'var(--vg-bg)',
           backdropFilter: scrolled ? 'blur(12px)' : 'none',
           borderColor: 'var(--vg-border)',
         }}
