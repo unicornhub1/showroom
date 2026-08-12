@@ -16,6 +16,7 @@ export const BRANCH_LABELS: Record<string, string> = {
   immobilien: 'Immobilien',
   gesundheit: 'Gesundheit',
   handwerk: 'Handwerk & Dienstleistung',
+  sicherheit: 'Sicherheit & Objektschutz',
 };
 
 export const TYPE_LABELS: Record<string, string> = {
@@ -229,6 +230,16 @@ export const TEMPLATES: Template[] = [
       'Historischer Hafen-Speicher, loftig-modern: Design-Hotel, Open-Kitchen-Restaurant und eine Bar mit Hafenblick. Hell und luftig mit Backstein-Akzenten.',
     thumbnail: '/templates/hotel/speicher-no7/thumb.jpg',
     pages: ['/', '/hotel', '/restaurant', '/bar', '/galerie', '/kontakt'],
+  },
+  {
+    slug: 'sicherheit/vigilis',
+    name: 'VIGILIS',
+    branch: 'sicherheit',
+    type: 'website',
+    description:
+      'Seriöse Objektschutz-Website mit interaktivem Preiskalkulator: fünfstufige Bedarfsabfrage, Live-Berechnung einer Preisspanne, freischaltbare Detailkalkulation und KI-Assistent.',
+    thumbnail: '/templates/sicherheit/vigilis/thumb.jpg',
+    pages: ['/', '/leistungen', '/branchen', '/konfigurator', '/ueber-uns', '/kontakt'],
   },
 ];
 

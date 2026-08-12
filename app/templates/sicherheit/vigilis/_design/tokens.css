@@ -1,0 +1,136 @@
+/* ── VIGILIS Design Tokens ────────────────────────────────────────────────────
+   Leitstand-Ästhetik: Graphit, Stahl, präzises Signalrot.
+   Dunkle Basis mit hellen Sektionen als Rhythmus.
+   ─────────────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* Dunkle Basis */
+  --vg-bg: #0A0D12;
+  --vg-surface: #111621;
+  --vg-surface-alt: #171E2B;
+  --vg-elevated: #1F2836;
+
+  /* Linien */
+  --vg-border: #222B3A;
+  --vg-border-light: #2F3B4D;
+  --vg-border-strong: #435268;
+
+  /* Signal */
+  --vg-signal: #C8413A;
+  --vg-signal-light: #DE5A52;
+  --vg-signal-dark: #A2312B;
+  --vg-signal-glow: rgba(200, 65, 58, 0.14);
+
+  /* Stahl (sekundär) */
+  --vg-steel: #6C8399;
+  --vg-steel-light: #94A9BD;
+
+  /* Text auf Dunkel */
+  --vg-text: #E9EDF3;
+  --vg-text-muted: #8B98AA;
+  --vg-text-dim: #5A6676;
+
+  /* Helle Sektionen */
+  --vg-light: #F2F4F7;
+  --vg-light-alt: #E6EAEF;
+  --vg-light-border: #D3DAE3;
+  --vg-on-light: #0E131B;
+  --vg-on-light-muted: #55606F;
+
+  /* Status */
+  --vg-ok: #3E9E7E;
+  --vg-warn: #D69B3C;
+}
+
+/* Tailwind v4: restore pointer cursor on interactive elements */
+button,
+[role='button'],
+select,
+summary,
+input[type='range'],
+input[type='checkbox'],
+input[type='radio'] {
+  cursor: pointer;
+}
+
+/* Range-Slider im Leitstand-Look */
+.vg-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 2px;
+  background: var(--vg-border-light);
+  outline: none;
+}
+
+.vg-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background: var(--vg-signal);
+  border: 3px solid var(--vg-bg);
+  box-shadow: 0 0 0 1px var(--vg-signal);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.vg-range::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+.vg-range::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  background: var(--vg-signal);
+  border: 3px solid var(--vg-bg);
+  box-shadow: 0 0 0 1px var(--vg-signal);
+  border-radius: 0;
+  cursor: pointer;
+}
+
+/* Feines Raster für Leitstand-Flächen */
+.vg-grid-bg {
+  background-image:
+    linear-gradient(var(--vg-border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--vg-border) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* Blinkender Status-Punkt */
+@keyframes vg-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.vg-pulse {
+  animation: vg-pulse 2.2s ease-in-out infinite;
+}
+
+/* Sanftes Einblenden für Konfigurator-Schritte */
+@keyframes vg-step-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.vg-step-in {
+  animation: vg-step-in 0.35s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vg-pulse,
+  .vg-step-in {
+    animation: none;
+  }
+}
