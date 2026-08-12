@@ -12,8 +12,6 @@ const ASSURANCES = [
 export default function KonfiguratorPage() {
   return (
     <main className="pt-[70px] md:pt-[106px]">
-      {/* Konfigurator, Kopf und Assistent bilden zusammen die dunkle Zone */}
-      <div className="vg-dark">
       {/* ── Kopf ──────────────────────────────────────────────────────────── */}
       <section
         className="relative overflow-hidden border-b"
@@ -22,12 +20,12 @@ export default function KonfiguratorPage() {
           borderColor: 'var(--vg-border)',
         }}
       >
-        <div className="vg-grid-bg absolute inset-0 opacity-[0.35]" />
+        <div className="vg-grid-bg absolute inset-0 opacity-60" />
         <div
           className="absolute inset-0"
           style={{
             background:
-              'radial-gradient(ellipse 70% 60% at 20% 0%, rgba(200,65,58,0.10), transparent 70%)',
+              'radial-gradient(ellipse 70% 60% at 20% 0%, rgba(191,58,51,0.05), transparent 70%)',
           }}
         />
 
@@ -203,7 +201,6 @@ export default function KonfiguratorPage() {
           </div>
         </div>
       </section>
-      </div>
 
       {/* ── FAQ ───────────────────────────────────────────────────────────── */}
       <section

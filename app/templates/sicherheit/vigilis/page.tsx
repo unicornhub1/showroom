@@ -304,15 +304,15 @@ export default function VigilisHome() {
 
       {/* ── Konfigurator-Bewerbung, Stelle 2 ──────────────────────────────── */}
       <section
-        className="vg-dark relative overflow-hidden border-y"
-        style={{ backgroundColor: 'var(--vg-bg)', borderColor: 'var(--vg-border)' }}
+        className="relative overflow-hidden border-y"
+        style={{ backgroundColor: 'var(--vg-surface)', borderColor: 'var(--vg-border)' }}
       >
-        <div className="vg-grid-bg absolute inset-0 opacity-30" />
+        <div className="vg-grid-bg absolute inset-0 opacity-60" />
         <div
           className="absolute inset-0"
           style={{
             background:
-              'radial-gradient(ellipse 60% 70% at 80% 50%, rgba(200,65,58,0.12), transparent 70%)',
+              'radial-gradient(ellipse 60% 70% at 80% 50%, rgba(191,58,51,0.05), transparent 70%)',
           }}
         />
 
@@ -392,7 +392,7 @@ export default function VigilisHome() {
             <div
               className="relative"
               style={{
-                backgroundColor: 'var(--vg-surface)',
+                backgroundColor: 'var(--vg-bg)',
                 border: '1px solid var(--vg-border-light)',
               }}
             >

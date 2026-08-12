@@ -180,15 +180,15 @@ export function Configurator() {
                               alt={obj.name}
                               fill
                               className="object-cover transition-transform duration-500 group-hover:scale-105"
-                              style={{ opacity: active ? 0.9 : 0.62 }}
+                              style={{ opacity: active ? 1 : 0.78 }}
                               sizes="(max-width: 640px) 100vw, 320px"
                             />
                             <div
                               className="absolute inset-0"
                               style={{
                                 background: active
-                                  ? 'linear-gradient(to top, var(--vg-surface) 12%, transparent 90%)'
-                                  : 'linear-gradient(to top, var(--vg-surface) 18%, rgba(10,13,18,0.35) 100%)',
+                                  ? 'linear-gradient(to top, var(--vg-surface) 10%, transparent 75%)'
+                                  : 'linear-gradient(to top, var(--vg-surface) 14%, rgba(13,18,25,0.12) 100%)',
                               }}
                             />
                             {active && (

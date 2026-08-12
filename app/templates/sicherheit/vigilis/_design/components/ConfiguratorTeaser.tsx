@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { ArrowRight, Sparkles, Clock, ShieldCheck } from 'lucide-react';
 import { CONFIGURATOR_HREF } from '../data';
 
@@ -14,26 +13,23 @@ const ASSURANCES = [
  */
 export function ConfiguratorTeaser() {
   return (
-    <section className="vg-dark relative overflow-hidden">
-      {/* Hintergrundbild */}
-      <div className="absolute inset-0">
-        <Image
-          src="/templates/sicherheit/vigilis/images/hero/cta.jpg"
-          alt=""
-          fill
-          className="object-cover"
-          sizes="100vw"
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              'linear-gradient(100deg, var(--vg-bg) 8%, rgba(10,13,18,0.95) 46%, rgba(10,13,18,0.7) 100%)',
-          }}
-        />
-      </div>
+    <section
+      className="relative overflow-hidden border-t"
+      style={{
+        backgroundColor: 'var(--vg-surface)',
+        borderColor: 'var(--vg-border)',
+      }}
+    >
+      <div className="vg-grid-bg absolute inset-0 opacity-60" />
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            'radial-gradient(ellipse 55% 70% at 88% 50%, rgba(191,58,51,0.06), transparent 70%)',
+        }}
+      />
 
-      <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
+      <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-28">
         <div className="max-w-3xl">
           <div className="flex items-center gap-3">
             <span
