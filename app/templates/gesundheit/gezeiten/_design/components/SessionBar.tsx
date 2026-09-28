@@ -3,11 +3,13 @@ import { SESSION } from "../data";
 /* Die erste Behandlung als maßstäbliche Zeitleiste: Breite (Desktop) bzw.
    Höhe (mobil) jedes Abschnitts entspricht seiner Dauer in Minuten. */
 
+/* Die Sektion liegt auf Kalk, daher beginnt die Skala bei Salbei:
+   hell → kräftiger → Behandlung am dunkelsten → warmes Ausklingen. */
 const TONES = [
-  { bg: "var(--gz-kalk)", fg: "var(--gz-moos)" },
-  { bg: "var(--gz-salbei)", fg: "var(--gz-moos)" },
+  { bg: "#C6CDB6", fg: "var(--gz-moos)" },
+  { bg: "#A3AD82", fg: "var(--gz-moos)" },
   { bg: "var(--gz-moos)", fg: "var(--gz-kalk)" },
-  { bg: "var(--gz-flechte)", fg: "var(--gz-kalk)" },
+  { bg: "#D6BD9F", fg: "var(--gz-moos)" },
 ];
 
 const total = SESSION.reduce((s, x) => s + x.minutes, 0);
