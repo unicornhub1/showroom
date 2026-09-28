@@ -241,6 +241,26 @@ export const TEMPLATES: Template[] = [
     thumbnail: '/templates/sicherheit/vigilis/thumb.jpg',
     pages: ['/', '/leistungen', '/branchen', '/konfigurator', '/ueber-uns', '/kontakt'],
   },
+  {
+    slug: 'gesundheit/ellerwald',
+    name: 'ELLERWALD',
+    branch: 'gesundheit',
+    type: 'website',
+    description:
+      'Privatpraxis für integrative Frauenmedizin: ruhiges Editorial-Design in Puder und Pflaume, interaktive Lebensphasen-Leiste, Journal und Online-Terminbuchung.',
+    thumbnail: '/templates/gesundheit/ellerwald/thumb.jpg',
+    pages: ['/', '/schwerpunkte', '/ueber-mich', '/termin'],
+  },
+  {
+    slug: 'gesundheit/gezeiten',
+    name: 'GEZEITEN',
+    branch: 'gesundheit',
+    type: 'website',
+    description:
+      'Osteopathie & Naturheilkunde in Nebel- und Moostönen: persönliche Du-Ansprache, „Womit kommst du zu mir?“-Wegweiser, maßstäbliche Behandlungs-Zeitleiste und Terminanfrage.',
+    thumbnail: '/templates/gesundheit/gezeiten/thumb.jpg',
+    pages: ['/', '/behandlung', '/ueber-mich', '/kontakt'],
+  },
 ];
 
 export function getTemplatesByFilter(
